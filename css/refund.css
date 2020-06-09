@@ -1,0 +1,137 @@
+.cs.refund {
+  width: 1010px;
+  font-size: 12px;
+}
+.cs.refund .nav-link {
+  font-weight: bold;
+  color: var(--secondary);
+}
+.cs.refund .nav-link.active {
+  color: #000;
+}
+.cs.refund .form-control-sm,
+.cs.refund .btn-sm {
+  font-size: 11px;
+}
+.cs.refund .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.cs.refund .table th, .cs.refund .table td {
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.cs.refund .table tbody th, .cs.refund .table tbody td {
+  height: 37px;
+}
+.cs.refund .table .no-data {
+  height: 50px;
+}
+.cs.refund .table .total th, .cs.refund .table .total td {
+  background: var(--light);
+}
+.cs.refund .search {
+  height: 26px;
+}
+.cs.refund .search .form-control {
+  width: 120px;
+}
+.cs.refund ::placeholder {
+  color: #ccc;
+}
+
+.cs.refund.account .table th {
+  width: 100px;
+  background: var(--light);
+  font-size: 11px;
+  vertical-align: middle;
+}
+.cs.refund.account .table .form-control {
+  width: 200px;
+}
+
+.cs.refund.checking.form .form-control {
+  width: 120px;
+}
+.cs.refund.checking.form .table {
+  table-layout: fixed;
+}
+.cs.refund.checking.form .table th {
+  height: 37px;
+  text-align: left;
+}
+.cs.refund.checking.form .table td {
+  text-align: left;
+  height: 37px;
+}
+.cs.refund.checking.form .total td {
+  color: var(--red);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.datepicker .datepicker-days th, .datepicker .datepicker-days td {
+  padding: 8px;
+  font-size: 12px;
+}
+
+.refund-modal {
+  font-size: 12px;
+}
+.refund-modal .modal-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0;
+  background: var(--light);
+}
+.refund-modal .modal-header .modal-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+.refund-modal .modal-header .close {
+  font-size: 14px;
+}
+.refund-modal .table-responsive {
+  max-height: 400px;
+}
+.refund-modal .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.refund-modal .table th, .refund-modal .table td {
+  height: 30px;
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.refund-modal .table .no-data {
+  height: 50px;
+}
+.refund-modal .form-control,
+.refund-modal .btn {
+  font-size: 11px !important;
+}
+.refund-modal .no-data {
+  height: 50px;
+}
+.refund-modal a:not(.btn) {
+  text-decoration: underline;
+}
+
+.cs.refund .table td a:not(.btn) {
+  font-size: 11px;
+  font-family: verdana, Gulim;
+  text-decoration: underline;
+}
+
+#refund-request-details.refund-modal .table {
+  table-layout: fixed;
+}
+#refund-request-details.refund-modal .table tbody th, #refund-request-details.refund-modal .table tbody td {
+  text-align: left;
+}
+
+/*# sourceMappingURL=refund.css.map */

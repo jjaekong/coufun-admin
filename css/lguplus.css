@@ -1,0 +1,94 @@
+@charset "UTF-8";
+.lguplus {
+  width: 1010px;
+  font-size: 12px;
+}
+.lguplus .nav-link {
+  font-weight: bold;
+  color: var(--secondary);
+}
+.lguplus .nav-link.active {
+  color: #000;
+}
+.lguplus .form-control-sm,
+.lguplus .btn-sm {
+  font-size: 11px;
+}
+.lguplus .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.lguplus .table th, .lguplus .table td {
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.lguplus .table tbody th, .lguplus .table tbody td {
+  height: 37px;
+}
+.lguplus .table .no-data {
+  height: 50px;
+}
+.lguplus .table .total th, .lguplus .table .total td {
+  background: var(--light);
+}
+.lguplus .search {
+  height: 26px;
+}
+.lguplus .search .form-control {
+  width: 120px;
+}
+.lguplus ::placeholder {
+  color: #ccc;
+}
+
+.lguplus-modal {
+  font-size: 12px;
+  font-family: verdana, Gulim;
+}
+.lguplus-modal .modal-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0;
+  background: var(--light);
+}
+.lguplus-modal .modal-header .modal-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+.lguplus-modal .modal-header .close {
+  font-size: 14px;
+}
+.lguplus-modal .custom-file-label:after {
+  content: "파일 선택";
+}
+.lguplus-modal .table-responsive {
+  max-height: 400px;
+}
+.lguplus-modal .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.lguplus-modal .table th, .lguplus-modal .table td {
+  height: 30px;
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.lguplus-modal .table .no-data {
+  height: 50px;
+}
+.lguplus-modal .form-control,
+.lguplus-modal .btn {
+  font-size: 11px !important;
+}
+.lguplus-modal .no-data {
+  height: 50px;
+}
+.lguplus-modal a:not(.btn) {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=lguplus.css.map */

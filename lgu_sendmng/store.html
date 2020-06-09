@@ -1,0 +1,423 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>쿠펀 관리자페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
+    <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/commons-validator-1.3.1-compress.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery-1.4.2.min.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.alphanumeric.pack.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.filestyle.mini.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.form.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.validate.min.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/util.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/window.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/file.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/string.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/selectbox.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/Treeview/ua.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/Treeview/ftiens4.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/calendar.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar-win2k-cold-1.css" />
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar-setup.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/lang/calendar-ko-utf8.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/struts/utils.js"></script>
+
+    <!-- v2 -->
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/commAjax.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/lib/handlebars-v4.0.12.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/helper.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- 엘지유플러스 CSS -->
+    <link rel="stylesheet" href="/css/lguplus.css">
+
+    <!-- 캘린더 JS & CSS -->
+    <script src="/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <link href="/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#04466c">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <!-- top 영역 시작 -->
+                <table style="width:100%; height:100; border:0; cellspacing:0; cellpadding:0;">
+                    <tr>
+                        <td width="200" rowspan="3" align="center">
+                        </td>
+                        <td align="right">
+                            <div id="top">
+                                <h1></h1>
+                                <h4>김재홍님 반갑습니다.</h4>
+                                <h2><a href="/v2/user/infoUpdate.om" title="정보수정"></a></h2>
+                                <h3>
+                                    <a href="/v2/login/logout.om" title="로그아웃"></a>
+                                </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <table style="width:700; border:0; cellspacing:0; cellpadding:0;">
+                                <tr>
+                                    <td align="center">
+                                        <div id="nav">
+                                            <ul>
+                                                <li>
+                                                    <a href="/v2/user/list.om?uppermenuId=1" class="menu">계정관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/goods/list.coufun?uppermenuId=2" class="menu">상품관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/poc/list.coufun?uppermenuId=3"
+                                                        class="menu">제휴사및POC관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/systemconfig/list.coufun?uppermenuId=9"
+                                                        class="menu">환경설정</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/statistics/poc_list.coufun?uppermenuId=32"
+                                                        class="menu">통계관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/calculation/calculation_define_list.coufun?uppermenuId=37"
+                                                        class="menu">대사</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/btob_agency/list.coufun?uppermenuId=42"
+                                                        class="menu">B2B 회원관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/btob_send/list.coufun?uppermenuId=45" class="menu">B2B
+                                                        발송관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/btob_event/list.coufun?uppermenuId=49"
+                                                        class="menu">B2B 이벤트관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/cs_new/list.coufun?uppermenuId=61"
+                                                        class="menu">C/S관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/selling_calculation/selectCalClientMonth.coufun?uppermenuId=67"
+                                                        class="menu">정산</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/oper_function/rcompany_coupon_rb_list.coufun?uppermenuId=108"
+                                                        class="menu">운영기능</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/company/companyList.coufun?uppermenuId=175"
+                                                        class="menu">거래처관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/sales/companySalesList.coufun?uppermenuId=177"
+                                                        class="menu">매출</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/couponmall/category.coufun?uppermenuId=182"
+                                                        class="menu">쿠폰몰</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/admin_system/calbatchlist.coufun?uppermenuId=187"
+                                                        class="menu">시스템</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- top 영역 끝-->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="205" valign="top">
+                            <!-- left 영역 시작 -->
+                            <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top">
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- left 영역 끝-->
+                        </td>
+                        <td align="left" valign="top">
+
+                            <!-- contents 영역 시작 -->
+
+                            <div class="lguplus">
+                            
+                                <!-- 탭 영역 -->
+                                <ul class="nav nav-tabs my-2">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="store.html">판매점 정보</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="sender.html">발신자 번호</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="receiver.html">수신자 번호</a>
+                                    </li>
+                                </ul>
+                                <!-- // 탭 영역 -->
+                                
+                                <!-- 검색 영역 -->
+                                <table class="table mt-4 border-bottom">
+                                    <colgroup>
+                                        <col style="width: 150px">
+                                        <col style="width: 300px">
+                                        <col style="width: 150px">
+                                        <col style="width: 300px">
+                                        <col style="width: 110px">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>판매점코드</th>
+                                            <td><input type="text" class="form-control form-control-sm" placeholder="복수입력 가능(구분자 : 띄어쓰기)"></td>
+                                            <th>판매점명</th>
+                                            <td><input type="text" class="form-control form-control-sm" placeholder="복수입력 가능(구분자 : 띄어쓰기)"></td>
+                                            <td><button type="button" class="btn btn-sm btn-secondary btn-block">조회</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- 검색 영역 -->
+
+                                <!-- 리스트 -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div><b>※ 총 00건의 결과가 있습니다.</b></div>
+                                    <div><button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#lguplus-register-modal">등록</button></div>
+                                </div>
+
+                                <table class="table table-hover mt-2">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" class="select-all"></th>
+                                            <th>No</th>
+                                            <th>등록일</th>
+                                            <th>판매점코드</th>
+                                            <th>판매점명</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>10</td>
+                                            <td>2020-05-15</td>
+                                            <td>F123456</td>
+                                            <td>서울옴니텔지점</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>9</td>
+                                            <td>2020-05-15</td>
+                                            <td>F123456</td>
+                                            <td>서울옴니텔지점</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>8</td>
+                                            <td>2020-05-15</td>
+                                            <td>F123456</td>
+                                            <td>서울옴니텔지점</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>7</td>
+                                            <td>2020-05-15</td>
+                                            <td>F123456</td>
+                                            <td>서울옴니텔지점</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td class="no-data" colspan="5">검색 결과가 없습니다.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- // 리스트 -->
+
+                                <!-- 페이지네이션 -->
+                                <div class="d-flex">
+                                    <div style="flex: 1">
+                                        <button class="btn btn-sm btn-secondary">선택 삭제</button>
+                                    </div>
+                                    <div style="flex: 1">
+                                        <nav>
+                                            <ul class="pagination pagination-sm justify-content-center">
+                                                <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">8</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">9</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div style="flex: 1" class="text-right">
+                                        <button class="btn btn-sm btn-secondary">전체 EXCEL 저장</button>
+                                    </div>
+                                </div>
+                                <!-- // 페이지네이션 -->
+
+                                <!-- 등록 모달 -->
+                                <div class="modal lguplus-modal" tabindex="-1" role="dialog" id="lguplus-register-modal">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">판매점 정보 등록</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="excel-upload mb-2">
+                                                    <div class="d-flex mb-2">
+                                                        <h6 class="mb-0" style="font-size: .8rem;">엑셀 업로드</h6>
+                                                        <a class="ml-auto" href="#" download>양식 다운로드</a>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="excel-file" required accept=".xlsx, .xls">
+                                                            <label class="custom-file-label" for="excel-file">파일 선택</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="register-form">
+                                                    <div class="table-responsive">
+                                                        <table class="table border-bottom" id="list-table" style='table-layout: auto!important'>
+                                                            <colgroup>
+                                                                <col style="width: 30%" />
+                                                                <col />
+                                                            </colgroup>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>판매점코드</th>
+                                                                    <th>판매점명</th>
+                                                                    <th>삭제</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><input type="text" class="form-control" required minlength="7" maxlength="7"></td>
+                                                                    <td><input type="text" class="form-control" required></td>
+                                                                    <td><button class="btn text-decoration-none shadow-none btn-delete-table-row" style="font-size: 1.5rem;">X</button></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="text-center">
+                                                            <button class="btn btn-sm btn-outline-secondary shadow-none" id="btn-add-table-row" style="width: 50px;">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer border-0 d-block text-center">
+                                                <button type="button" class="btn btn-secondary btn-sm">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 등록 모달 -->
+
+                            </div>
+
+                            <script>
+                                (function($) {
+                                    // 체크박스 전체 선택
+                                    $(document).on('click', '.lguplus .table thead .select-all', function() {
+                                        $('.lguplus .table tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'));
+                                    });
+
+                                    // 테이블 행 추가
+                                    $(document).on('click', '#btn-add-table-row', function() {
+                                        $('#lguplus-register-modal #list-table tbody:eq(0)').append(
+                                            `<tr>
+                                                <td><input type="text" class="form-control" required minlength="7" maxlength="7"></td>
+                                                <td><input type="text" class="form-control" required></td>
+                                                <td><button class="btn text-decoration-none shadow-none btn-delete-table-row" style="font-size: 1.5rem;">X</button></td>
+                                            </tr>`
+                                        )
+                                    });
+
+                                    // 테이블 행 삭제
+                                    $(document).on('click', '.btn-delete-table-row', function() {
+                                        $(this).parents('tr').eq(0).remove();
+                                    });
+
+                                    // 파일 선택 시
+                                    $(document).on('input', '.custom-file-input', function(e) {
+                                        if (e.target.files.length == 0) {
+                                            $(this).siblings('.custom-file-label').text('파일 선택')
+                                            enableRegisterForm()
+                                            return;
+                                        } else if (e.target.files.length == 1) {
+                                            $(this).siblings('.custom-file-label').text(e.currentTarget.files[0].name)
+                                            disableRegisterForm()
+                                        } else {
+                                            disableRegisterForm()
+                                            return;
+                                        }
+                                    })
+
+                                    // 파일 선택 시, 입력 양식 비활성화
+                                    function disableRegisterForm() {
+                                        $('#lguplus-register-modal .register-form .form-control').prop('disabled', true)
+                                        $('#lguplus-register-modal .register-form .btn').prop('disabled', true)
+                                    }
+                                    function enableRegisterForm() {
+                                        $('#lguplus-register-modal .register-form .form-control').prop('disabled', false)
+                                        $('#lguplus-register-modal .register-form .btn').prop('disabled', false)
+                                    }
+
+                                })(jQuery);
+                            </script>
+
+                            <!-- contents 영역 끝-->
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

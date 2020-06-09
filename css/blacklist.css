@@ -1,0 +1,115 @@
+@charset "UTF-8";
+.blacklist {
+  width: 1010px;
+  font-size: 12px;
+}
+.blacklist .nav-link {
+  font-weight: bold;
+  color: var(--secondary);
+}
+.blacklist .nav-link.active {
+  color: #000;
+}
+.blacklist .form-control-sm,
+.blacklist .btn-sm {
+  font-size: 11px;
+}
+.blacklist .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.blacklist .table th, .blacklist .table td {
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.blacklist .table tbody th, .blacklist .table tbody td {
+  height: 37px;
+}
+.blacklist .table .no-data {
+  height: 50px;
+}
+.blacklist .table .total th, .blacklist .table .total td {
+  background: var(--light);
+}
+.blacklist .search {
+  height: 26px;
+}
+.blacklist .search .form-control {
+  width: 120px;
+}
+.blacklist ::placeholder {
+  color: #ccc;
+}
+
+.blacklist-modal {
+  font-size: 12px;
+  font-family: verdana, Gulim;
+}
+.blacklist-modal .modal-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0;
+  background: var(--light);
+}
+.blacklist-modal .modal-header .modal-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+.blacklist-modal .modal-header .close {
+  font-size: 14px;
+}
+.blacklist-modal .custom-file-label:after {
+  content: "파일 선택";
+}
+.blacklist-modal .table-responsive {
+  max-height: 400px;
+}
+.blacklist-modal .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.blacklist-modal .table th, .blacklist-modal .table td {
+  height: 30px;
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.blacklist-modal .table .no-data {
+  height: 50px;
+}
+.blacklist-modal .form-control,
+.blacklist-modal .btn {
+  font-size: 11px !important;
+}
+.blacklist-modal .no-data {
+  height: 50px;
+}
+.blacklist-modal a:not(.btn) {
+  text-decoration: underline;
+}
+
+#suspect-details-modal .table td {
+  text-align: left;
+}
+#suspect-details-modal .quantity-history {
+  overflow: auto;
+  width: 200px;
+  max-height: 200px;
+  border: 1px solid #ccc;
+  position: absolute;
+  background: #fff;
+}
+
+#order-matching-modal.show {
+  display: flex !important;
+}
+
+.datepicker .datepicker-days th, .datepicker .datepicker-days td {
+  padding: 8px;
+  font-size: 12px;
+}
+
+/*# sourceMappingURL=blacklist.css.map */

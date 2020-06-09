@@ -1,0 +1,644 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>쿠펀 관리자페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
+    <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/commons-validator-1.3.1-compress.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery-1.4.2.min.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.alphanumeric.pack.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.filestyle.mini.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.form.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.validate.min.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/util.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/window.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/file.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/string.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/selectbox.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/Treeview/ua.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/Treeview/ftiens4.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/calendar.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar-win2k-cold-1.css" />
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar-setup.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/lang/calendar-ko-utf8.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/struts/utils.js"></script>
+
+    <!-- v2 -->
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/commAjax.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/lib/handlebars-v4.0.12.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/helper.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- 블랙리스트 CSS -->
+    <link rel="stylesheet" href="/css/blacklist.css">
+
+    <!-- 캘린더 JS & CSS -->
+    <script src="/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <link href="/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#04466c">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <!-- top 영역 시작 -->
+                <table style="width:100%; height:100; border:0; cellspacing:0; cellpadding:0;">
+                    <tr>
+                        <td width="200" rowspan="3" align="center">
+                        </td>
+                        <td align="right">
+                            <div id="top">
+                                <h1></h1>
+                                <h4>김재홍님 반갑습니다.</h4>
+                                <h2><a href="/v2/user/infoUpdate.om" title="정보수정"></a></h2>
+                                <h3>
+                                    <a href="/v2/login/logout.om" title="로그아웃"></a>
+                                </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <table style="width:700; border:0; cellspacing:0; cellpadding:0;">
+                                <tr>
+                                    <td align="center">
+                                        <div id="nav">
+                                            <ul>
+                                                <li>
+                                                    <a href="/v2/user/list.om?uppermenuId=1" class="menu">계정관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/goods/list.coufun?uppermenuId=2" class="menu">상품관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/poc/list.coufun?uppermenuId=3"
+                                                        class="menu">제휴사및POC관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/systemconfig/list.coufun?uppermenuId=9"
+                                                        class="menu">환경설정</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/statistics/poc_list.coufun?uppermenuId=32"
+                                                        class="menu">통계관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/calculation/calculation_define_list.coufun?uppermenuId=37"
+                                                        class="menu">대사</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/btob_agency/list.coufun?uppermenuId=42"
+                                                        class="menu">B2B 회원관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/btob_send/list.coufun?uppermenuId=45" class="menu">B2B
+                                                        발송관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/btob_event/list.coufun?uppermenuId=49"
+                                                        class="menu">B2B 이벤트관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/cs_new/list.coufun?uppermenuId=61"
+                                                        class="menu">C/S관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/selling_calculation/selectCalClientMonth.coufun?uppermenuId=67"
+                                                        class="menu">정산</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/oper_function/rcompany_coupon_rb_list.coufun?uppermenuId=108"
+                                                        class="menu">운영기능</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/company/companyList.coufun?uppermenuId=175"
+                                                        class="menu">거래처관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/sales/companySalesList.coufun?uppermenuId=177"
+                                                        class="menu">매출</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/couponmall/category.coufun?uppermenuId=182"
+                                                        class="menu">쿠폰몰</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/admin_system/calbatchlist.coufun?uppermenuId=187"
+                                                        class="menu">시스템</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- top 영역 끝-->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="205" valign="top">
+                            <!-- left 영역 시작 -->
+                            <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top">
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- left 영역 끝-->
+                        </td>
+                        <td align="left" valign="top">
+
+                            <!-- contents 영역 시작 -->
+
+                            <div class="blacklist">
+                                
+                                <!-- 검색 영역 -->
+                                <form>
+                                    <table class="table mt-4 border-bottom">
+                                        <colgroup>
+                                            <col style='width: 150px'>
+                                            <col style="width: 355px">
+                                            <col style='width: 150px'>
+                                            <col style="width: 355px">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>구매기간</th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" class="form-control form-control-sm datepicker start" readonly style="width: 120px;">
+                                                        <span class="mx-2">~</span>
+                                                        <input type="text" class="form-control form-control-sm datepicker end" readonly style="width: 120px;">
+                                                    </div>
+                                                </td>
+                                                <th>구매건수</th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" class="form-control form-control-sm" style="width: 120px;"> <span class="ml-2">개 이상</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>수신자번호</th>
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm">
+                                                </td>
+                                                <th>상품명</th>
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4">
+                                                    <button type="submit" class="btn btn-sm btn-secondary mx-1">조회</button>
+                                                    <button type="reset" class="btn btn-sm btn-secondary mx-1">초기화</button>
+                                                    
+                                                    <!-- 로딩모달 보이기 버튼은 개발 후 삭제해 주세요-->
+                                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#loading">로딩모달 보이기(개발확인용)</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <!-- 검색 영역 -->
+
+                                <!-- 리스트 -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div><b>※ 총 00건의 결과가 있습니다.</b></div>
+                                    <div>
+                                        <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#purchasing-channel-modal">구매채널 관리</button>
+                                    </div>
+                                </div>
+
+                                <table class="table table-hover mt-2">
+                                    <colgroup>
+                                        <col style="width: 80px;">
+                                        <col style="width: 120px;">
+                                        <col style="width: 80px;">
+                                        <col style="width: 120px;">
+                                        <col style="width: auto;">
+                                        <col style="width: 120px;">
+                                        <col style="width: 120px;">
+                                    </colgroup>
+                                    <thead>
+                                        <tr style="height: 30px">
+                                            <th>No</th>
+                                            <th>구매기간</th>
+                                            <th>구매수량</th>
+                                            <th>상품ID</th>
+                                            <th>상품명</th>
+                                            <th>수신자번호</th>
+                                            <th>구매채널</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>2020-05-15 ~ 2020-05-31</td>
+                                            <td>15</td>
+                                            <td>0000005864</td>
+                                            <td><a href="#" class="show-suspect-details"><u>빽다방 3만원권</u></a></td>
+                                            <td>010****5678</td>
+                                            <td>11번가</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>2020-05-15 ~ 2020-05-31</td>
+                                            <td>15</td>
+                                            <td>0000005864</td>
+                                            <td><a href="#" class="show-suspect-details"><u>빽다방 3만원권</u></a></td>
+                                            <td>010****5678</td>
+                                            <td>11번가</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>2020-05-15 ~ 2020-05-31</td>
+                                            <td>15</td>
+                                            <td>0000005864</td>
+                                            <td><a href="#" class="show-suspect-details"><u>빽다방 3만원권</u></a></td>
+                                            <td>010****5678</td>
+                                            <td>11번가</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>2020-05-15 ~ 2020-05-31</td>
+                                            <td>15</td>
+                                            <td>0000005864</td>
+                                            <td><a href="#" class="show-suspect-details"><u>빽다방 3만원권</u></a></td>
+                                            <td>010****5678</td>
+                                            <td>11번가</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>2020-05-15 ~ 2020-05-31</td>
+                                            <td>15</td>
+                                            <td>0000005864</td>
+                                            <td><a href="#" class="show-suspect-details"><u>빽다방 3만원권</u></a></td>
+                                            <td>010****5678</td>
+                                            <td>11번가</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>2020-05-15 ~ 2020-05-31</td>
+                                            <td>15</td>
+                                            <td>0000005864</td>
+                                            <td><a href="#" class="show-suspect-details"><u>빽다방 3만원권</u></a></td>
+                                            <td>010****5678</td>
+                                            <td>11번가</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td class="no-data" colspan="7">검색 결과가 없습니다.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- // 리스트 -->
+
+                                <!-- 페이지네이션 -->
+                                <div class="d-flex">
+                                    <div style="flex: 1"></div>
+                                    <div style="flex: 1">
+                                        <nav>
+                                            <ul class="pagination pagination-sm justify-content-center">
+                                                <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">8</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">9</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div style="flex: 1" class="text-right">
+                                        <button class="btn btn-sm btn-secondary">EXCEL 다운로드</button>
+                                    </div>
+                                </div>
+                                <!-- // 페이지네이션 -->
+
+                            </div>
+
+                            <!-- 상세 모달 -->
+                            <!--
+                                모달 보이기: $('#loading').modal('show')
+                                모달 숨기기: $('#loading').modal('hide')
+                            -->
+                            <div class="modal blacklist-modal" tabindex="-1" role="dialog" id="suspect-details-modal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">비정상거래 의심대상 상세</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="table-responsive">
+                                                <table class="table border-bottom">
+                                                    <colgroup>
+                                                        <col style="width: 120px">
+                                                        <col>
+                                                        <col style="width: 120px">
+                                                        <col>
+                                                    </colgroup>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>구매기간</th>
+                                                            <td colspan="3">
+                                                                <div class="period"></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>수량</th>
+                                                            <td>
+                                                                <a href="#" class="quantity">20</a>
+                                                                <div class="quantity-history" style="display: none;" tabindex="-1"></div>
+                                                            </td>
+                                                            <th>상품ID</th>
+                                                            <td>
+                                                                <div class="prod-id"></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>상품명</th>
+                                                            <td colspan="3">
+                                                                <div class="prod-name"></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>수신자번호</th>
+                                                            <td>
+                                                                <div class="receiver"></div>
+                                                            </td>
+                                                            <th>구매채널</th>
+                                                            <td>
+                                                                <div class="channel">G마켓</div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">닫기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 상세 모달 -->
+
+                            <!-- 로딩 모달 -->
+                            <div class="modal" tabindex="-1" role="dialog" id="loading" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog my-0" role="document" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+                                    <div class="modal-content">
+                                        <div class="modal-body p-5 text-center">
+                                            <div class="mb-4">
+                                                <div class="spinner-grow text-dark" role="status" style="animation-delay: 0s;">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                                <div class="spinner-grow text-dark" role="status" style="animation-delay: 0.1s;">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                                <div class="spinner-grow text-dark" role="status" style="animation-delay: 0.2s;">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                            </div>
+                                            <p class="mb-0" style="font-size: 16px; font-weight: bold; line-height: 1.6;">
+                                                비정상거래 의심 대상을<br>
+                                                조회 중입니다.
+                                            </p>
+                                            
+                                            <!-- 모달 닫기 버튼은 개발 후 삭제해 주세요 -->
+                                            <button data-dismiss="modal" class="btn btn-sm btn-secondary">모달 닫기(개발확인용)</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 로딩 모달 -->
+
+                            <!-- 구매채널 관리 모달 -->
+                            <div class="modal blacklist-modal" tabindex="-1" role="dialog" id="purchasing-channel-modal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">구매채널 관리</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-2"><b>총 00건의 결과가 있습니다.</b></div>
+                                            <div class="table-responsive">
+                                                <table class="table border-bottom">
+                                                    <colgroup>
+                                                        <col style="width: 120px">
+                                                        <col>
+                                                        <col style="width: 120px">
+                                                        <col>
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>POC ID</th>
+                                                            <th>POC명</th>
+                                                            <th>구매채널</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>10</td>
+                                                            <td>POC0000123</td>
+                                                            <td>11번가_테스트</td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <label class="d-flex align-items-center mr-3 mb-0">
+                                                                        <input type="radio"><span class="ml-2">O</span>
+                                                                    </label>
+                                                                    <label class="d-flex align-items-center mr-3 mb-0">
+                                                                        <input type="radio"><span class="ml-2">X</span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>10</td>
+                                                            <td>POC0000123</td>
+                                                            <td>11번가_테스트</td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <label class="d-flex align-items-center mr-3 mb-0">
+                                                                        <input type="radio"><span class="ml-2">O</span>
+                                                                    </label>
+                                                                    <label class="d-flex align-items-center mr-3 mb-0">
+                                                                        <input type="radio"><span class="ml-2">X</span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>10</td>
+                                                            <td>POC0000123</td>
+                                                            <td>11번가_테스트</td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <label class="d-flex align-items-center mr-3 mb-0">
+                                                                        <input type="radio"><span class="ml-2">O</span>
+                                                                    </label>
+                                                                    <label class="d-flex align-items-center mr-3 mb-0">
+                                                                        <input type="radio"><span class="ml-2">X</span>
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="no-data" colspan="4">결과가 없습니다.</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary btn-sm">저장</button>
+                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">닫기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 구매채널 관리 모달 -->
+
+                            <script>
+                                (function($) {
+                                    $(".datepicker").datepicker({
+                                        language: "ko"
+                                    });
+
+                                    // 상세모달 호출, 보이기
+                                    $(document).on('click', '.show-suspect-details', function(e) {
+                                        e.preventDefault()
+                                        $("#suspect-details-modal").modal('show')
+                                    })
+                                    
+                                    // 상세모달 보일 때, 컨텐츠 채워넣기
+                                    $(document).on('show.bs.modal', '#suspect-details-modal', function(e) {
+
+                                        // AJAX로 데이터 불러온 후, 컨텐츠 채워넣기
+                                        $('#suspect-details-modal .period').text('2020-03-01 ~ 2020-03-07')
+                                        $('#suspect-details-modal .prod-id').text('0000005862')
+                                        $('#suspect-details-modal .prod-name').text('홍콩반점 5만원권')
+                                        $('#suspect-details-modal .prod-name').text('홍콩반점 5만원권')
+                                        $('#suspect-details-modal .receiver').text('01012345678')
+                                        $('#suspect-details-modal .channel').text('G마켓')
+                                        $('#suspect-details-modal .quantity').text('10')
+
+                                        var table = "<table class='table mb-0 border-0'>"
+                                            table += "<tr>"
+                                            table += "  <th>날짜</th>"
+                                            table += "  <th>수량</th>"
+                                            table += "</tr>"
+
+                                            table += "<tr>"
+                                            table += "  <td class='text-center'>2020-03-07</td>"
+                                            table += "  <td class='text-center'>5개</td>"
+                                            table += "</tr>"
+
+                                            table += "<tr>"
+                                            table += "  <td class='text-center'>2020-03-07</td>"
+                                            table += "  <td class='text-center'>5개</td>"
+                                            table += "</tr>"
+
+                                            table += "<tr>"
+                                            table += "  <td class='text-center'>2020-03-07</td>"
+                                            table += "  <td class='text-center'>5개</td>"
+                                            table += "</tr>"
+
+                                            table += "<tr>"
+                                            table += "  <td class='text-center'>2020-03-07</td>"
+                                            table += "  <td class='text-center'>5개</td>"
+                                            table += "</tr>"
+
+                                            table += "<tr>"
+                                            table += "  <td class='text-center'>2020-03-07</td>"
+                                            table += "  <td class='text-center'>5개</td>"
+                                            table += "</tr>"
+
+                                            table += "<tr>"
+                                            table += "  <td class='text-center'>2020-03-07</td>"
+                                            table += "  <td class='text-center'>5개</td>"
+                                            table += "</tr>"
+
+                                            table += "</table>"
+                                        $('#suspect-details-modal .quantity-history').html(table)
+                                    })
+
+                                    // 수량 클릭 시, 히스토리 레이어 보이기
+                                    $(document).on('click', '#suspect-details-modal .quantity', function(e) {
+                                        e.preventDefault()
+                                        $('#suspect-details-modal .quantity-history').show()
+                                        $('#suspect-details-modal .quantity-history').focus()
+                                    })
+
+                                    // 히스토리 레이어 닫기
+                                    $(document).on('blur', '#suspect-details-modal .quantity-history', function() {
+                                        $('#suspect-details-modal .quantity-history').hide()
+                                    })
+
+                                    $(document).on('hidden.bs.modal', '#suspect-details-modal', function(e) {
+                                        $('#suspect-details-modal .period').text('')
+                                        $('#suspect-details-modal .prod-id').text('')
+                                        $('#suspect-details-modal .prod-name').text('')
+                                        $('#suspect-details-modal .prod-name').text('')
+                                        $('#suspect-details-modal .receiver').text('')
+                                        $('#suspect-details-modal .channel').text('')
+                                        $('#suspect-details-modal .quantity').text('')
+                                        $('#suspect-details-modal .quantity-history .table').remove()
+                                    })
+
+                                })(jQuery);
+                            </script>
+
+                            <!-- contents 영역 끝-->
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

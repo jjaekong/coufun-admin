@@ -1,0 +1,892 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>쿠펀 관리자페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
+    <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/commons-validator-1.3.1-compress.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery-1.4.2.min.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.alphanumeric.pack.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.filestyle.mini.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.form.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.validate.min.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/util.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/window.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/file.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/string.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/selectbox.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/Treeview/ua.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/Treeview/ftiens4.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/calendar.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar-win2k-cold-1.css" />
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar-setup.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/lang/calendar-ko-utf8.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/struts/utils.js"></script>
+
+    <!-- v2 -->
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/commAjax.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/lib/handlebars-v4.0.12.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/helper.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- 환불처리 CSS -->
+    <link rel="stylesheet" href="/css/refund.css">
+
+</head>
+
+<body>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#04466c">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <!-- top 영역 시작 -->
+                <table style="width:100%; height:100; border:0; cellspacing:0; cellpadding:0;">
+                    <tr>
+                        <td width="200" rowspan="3" align="center">
+                        </td>
+                        <td align="right">
+                            <div id="top">
+                                <h1></h1>
+                                <h4>김재홍님 반갑습니다.</h4>
+                                <h2><a href="/v2/user/infoUpdate.om" title="정보수정"></a></h2>
+                                <h3>
+                                    <a href="/v2/login/logout.om" title="로그아웃"></a>
+                                </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <table style="width:700; border:0; cellspacing:0; cellpadding:0;">
+                                <tr>
+                                    <td align="center">
+                                        <div id="nav">
+                                            <ul>
+                                                <li>
+                                                    <a href="/v2/user/list.om?uppermenuId=1" class="menu">계정관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/goods/list.coufun?uppermenuId=2" class="menu">상품관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/poc/list.coufun?uppermenuId=3"
+                                                        class="menu">제휴사및POC관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/systemconfig/list.coufun?uppermenuId=9"
+                                                        class="menu">환경설정</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/statistics/poc_list.coufun?uppermenuId=32"
+                                                        class="menu">통계관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/calculation/calculation_define_list.coufun?uppermenuId=37"
+                                                        class="menu">대사</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/btob_agency/list.coufun?uppermenuId=42"
+                                                        class="menu">B2B 회원관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/btob_send/list.coufun?uppermenuId=45" class="menu">B2B
+                                                        발송관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/btob_event/list.coufun?uppermenuId=49"
+                                                        class="menu">B2B 이벤트관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/cs_new/list.coufun?uppermenuId=61"
+                                                        class="menu">C/S관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/selling_calculation/selectCalClientMonth.coufun?uppermenuId=67"
+                                                        class="menu">정산</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/oper_function/rcompany_coupon_rb_list.coufun?uppermenuId=108"
+                                                        class="menu">운영기능</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/company/companyList.coufun?uppermenuId=175"
+                                                        class="menu">거래처관리</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/sales/companySalesList.coufun?uppermenuId=177"
+                                                        class="menu">매출</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/couponmall/category.coufun?uppermenuId=182"
+                                                        class="menu">쿠폰몰</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/admin_system/calbatchlist.coufun?uppermenuId=187"
+                                                        class="menu">시스템</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- top 영역 끝-->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="205" valign="top">
+                            <!-- left 영역 시작 -->
+                            <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top">
+                                        <table width="200" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <div id="left">
+                                                        <h1>C/S관리</h1>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/cs_new/list.coufun">주문관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/cs_new/sc_list.coufun">B2C 회원관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/cs_new/delivery_list.coufun">배송관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/cs_new/qnaList.coufun">영랩/예스쿠폰 Q&A</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/cs_new/sscd_list.coufun">삼성카드인증번호조회</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/adminalarm/list.coufun">기한만료 알림관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a
+                                                                    href="/lgu_ordermng/orderlist.coufun">LGU+주문관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/lgu_sendmng/sendlist.coufun">LGU+발송관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/cs_new/account.html">환불관리</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- left 영역 끝-->
+                        </td>
+                        <td align="left" valign="top">
+                            <!-- contents 영역 시작 -->
+
+                            <div class="cs refund checking form">
+                            
+                                <!-- 탭 영역 -->
+                                <ul class="nav nav-tabs my-2">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="account.html">계좌 등록</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="checking.html">확인 중(9999)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="processing.html">처리 중(9999)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="pending.html">보류 중(9999)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="complete.html">완료</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="statistics.html">통계</a>
+                                    </li>
+                                </ul>
+                                <!-- // 탭 영역 -->
+
+                                <!-- 검색 영역 -->
+                                <div class="search d-flex justify-content-between align-items-center">
+                                    <div><b>※ 보류 재설정 (등록번호 1000050)</b></div>
+                                </div>
+                                <!--// 검색 영역 -->
+
+                                <!-- 환불 정보 추가 테이블 -->
+                                <table class="table border-bottom">
+                                    <colgroup>
+                                        <col style="width: 150px">
+                                        <col>
+                                        <col style="width: 150px">
+                                        <col>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>예금주</th>
+                                            <td><input type="text" class="form-control form-control-sm"></td>
+                                            <th>등록일</th>
+                                            <td>2019-11-11 05:45:25</td>
+                                        </tr>
+                                        <tr>
+                                            <th>은행명</th>
+                                            <td>
+                                                <div class="d-inline-flex">
+                                                    <!-- <select class="form-control form-control-sm">
+                                                        <option>우리은행</option>
+                                                    </select>
+                                                    <input type="text" class="form-control form-control-sm ml-1"> -->
+                                                    <select id="select-bank" class="form-control form-control-sm">
+                                                        <option>은행선택</option>
+                                                        <option value="direct">직접입력</option>
+                                                        <option>국민은행</option>
+                                                        <option>신한은행</option>
+                                                        <option>우리은행</option>
+                                                        <option>하나은행</option>
+                                                        <option>기업은행</option>
+                                                        <option>광주은행</option>
+                                                        <option>전북은행</option>
+                                                        <option>대구은행</option>
+                                                        <option>새마을금고</option>
+                                                        <option>신협중앙회</option>
+                                                        <option>제주은행</option>
+                                                        <option>카카오뱅크</option>
+                                                        <option>수협은행</option>
+                                                    </select>
+                                                    <input type="text" id="bank-input" class="ml-2 form-control form-control-sm" style="display: none;">
+                                                </div>
+                                            </td>
+                                            <th>계좌번호</th>
+                                            <td>
+                                                <div class="d-inline-flex">
+                                                    <input type="text" class="form-control form-control-sm" style="width: 180px">
+                                                    <button type="button" class="btn btn-sm btn-secondary ml-1">조회</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>보류 사유</th>
+                                            <td>잔액 부족</td>
+                                            <th>보류 일시</th>
+                                            <td>2019-11-11  05:45:25</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- // 환불 정보 추가 테이블 -->
+
+                                <div class="util mb-2 text-right">
+                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#add-product-modal">상품 선택 추가 +</button>
+                                </div>
+                                
+                                <!-- 상품 상세 테이블 (details 클래스) -->
+                                <table class="table border-bottom details">
+                                    <colgroup>
+                                        <col style="width: 150px">
+                                        <col>
+                                        <col style="width: 150px">
+                                        <col>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>순번/상품명</th>
+                                            <td colspan="3">
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <b>002 / 빽다방)사라다빵_B2C_[옴니텔]_빽다방앱 기프트샵(BEST_NEW)</b>
+                                                    <div>
+                                                        <input type="hidden" name="is-editable" value="true">
+                                                        <button type="button" class="btn btn-sm btn-secondary btn-delete-product">제거</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>쿠폰번호</th>
+                                            <td>
+                                                704412357895
+                                            </td>
+                                            <th>정상가 / 구매금액</th>
+                                            <td>
+                                                <div class="d-inline-flex align-items-center">
+                                                    <input type="text" class="form-control form-control-sm mr-2" style="width: 100px"> /
+                                                    <input type="text" class="form-control form-control-sm ml-2" style="width: 100px">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>잔액</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm" style="width: 100px">
+                                            </td>
+                                            <th>환불 금액</th>
+                                            <td>
+                                                <div class="d-inline-flex align-items-center">
+                                                    <input type="text" class="form-control form-control-sm" style="width: 100px">
+                                                    <label class="ml-2 mb-0 d-flex align-items-center">
+                                                        <input class="mr-1 refund-amount-check" type="checkbox"><span>직접입력</span>
+                                                    </label>
+                                                </div>
+                                                <div class="mt-1 refund-amount-input" style="display: none;">
+                                                    <input type="text" class="form-control form-control-sm" style="width: 250px" placeholder="변경 사유 입력">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>최종 소지자</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm" style="width: 150px">
+                                            </td>
+                                            <th>연락처</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm" style="width: 150px">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>최초 교환일</th>
+                                            <td>
+                                                2019-07-29 19:50:16
+                                            </td>
+                                            <th>채널 / 기간만료</th>
+                                            <td>
+                                                카카오톡 / O
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>요청사항</th>
+                                            <td>
+                                                <select class="form-control form-control-sm">
+                                                    <option>요청사항 선택</option>
+                                                    <option>요청사항 선택</option>
+                                                </select>
+                                            </td>
+                                            <th>사유</th>
+                                            <td>
+                                                <select class="form-control form-control-sm">
+                                                    <option>사유 선택</option>
+                                                    <option>사유1</option>
+                                                    <option>사유2</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- // 상품 상세 테이블 -->
+
+                                <table class="table border-bottom details">
+                                    <colgroup>
+                                        <col style="width: 150px">
+                                        <col>
+                                        <col style="width: 150px">
+                                        <col>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>순번/상품명</th>
+                                            <td colspan="3">
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <b>002 / 빽다방)사라다빵_B2C_[옴니텔]_빽다방앱 기프트샵(BEST_NEW)</b>
+                                                    <div>
+                                                        <input type="hidden" name="is-editable" value="true">
+                                                        <button type="button" class="btn btn-sm btn-secondary btn-delete-product">제거</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>쿠폰번호</th>
+                                            <td>
+                                                704412357895
+                                            </td>
+                                            <th>정상가 / 구매금액</th>
+                                            <td>
+                                                <div class="d-inline-flex align-items-center">
+                                                    <input type="text" class="form-control form-control-sm mr-2" style="width: 100px"> /
+                                                    <input type="text" class="form-control form-control-sm ml-2" style="width: 100px">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>잔액</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm" style="width: 100px">
+                                            </td>
+                                            <th>환불 금액</th>
+                                            <td>
+                                                <div class="d-inline-flex align-items-center">
+                                                    <input type="text" class="form-control form-control-sm" style="width: 100px">
+                                                    <label class="ml-2 mb-0 d-flex align-items-center">
+                                                        <input class="mr-1 refund-amount-check" type="checkbox"><span>직접입력</span>
+                                                    </label>
+                                                </div>
+                                                <div class="mt-1 refund-amount-input" style="display: none;">
+                                                    <input type="text" class="form-control form-control-sm" style="width: 250px" placeholder="변경 사유 입력">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>최종 소지자</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm" style="width: 150px">
+                                            </td>
+                                            <th>연락처</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm" style="width: 150px">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>최초 교환일</th>
+                                            <td>
+                                                2019-07-29 19:50:16
+                                            </td>
+                                            <th>채널 / 기간만료</th>
+                                            <td>
+                                                카카오톡 / O
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>요청사항</th>
+                                            <td>
+                                                <select class="form-control form-control-sm">
+                                                    <option>요청사항 선택</option>
+                                                    <option>요청사항 선택</option>
+                                                </select>
+                                            </td>
+                                            <th>사유</th>
+                                            <td>
+                                                <select class="form-control form-control-sm">
+                                                    <option>사유 선택</option>
+                                                    <option>사유1</option>
+                                                    <option>사유2</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <!-- 총 환불금액 -->
+                                <table class="table border-bottom total">
+                                    <colgroup>
+                                        <col style="width: 150px">
+                                        <col>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>총 환불 금액</th>
+                                            <td>1,800원</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- // 총 환불금액 -->
+
+                                <div class="btn-area d-flex justify-content-between">
+                                    <div>
+                                        ※ 수정 완료를 클릭 하시면 [처리 중] 상태값으로 전환됩니다.
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-sm btn-secondary">취소</button>
+                                        <button type="button" class="btn btn-sm btn-secondary">수정 완료</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- 상품 추가 레이어 팝업 -->
+                            <div class="modal refund-modal" id="add-product-modal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document" style="max-width: 1000px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title">상품추가</h6>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="search mb-2 d-flex">
+                                                <div style="flex: 1" class="d-flex">
+                                                    <select class="form-control form-control-sm" style="width: 100px;">
+                                                        <option>휴대폰번호</option>
+                                                        <option>쿠폰번호</option>
+                                                        <option>선물코드</option>
+                                                        <option>주문번호</option>
+                                                    </select>
+                                                    <input type="text" class="form-control form-control-sm ml-2" style="width: 150px;">
+                                                    <button class="btn btn-sm btn-secondary ml-2">검색</button>
+                                                </div>
+                                                <div style="flex: 1" class="d-flex justify-content-end">
+                                                    <label for="upload-file" class="btn btn-sm btn-secondary mb-0">
+                                                        파일업로드
+                                                    </label>
+                                                    <input type="file" id="upload-file" class="d-none">
+                                                    <button class="btn btn-sm btn-secondary ml-2">양식다운로드</button>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table border-bottom mb-0" style="width: 2000px;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th><input type="checkbox" class="select-all"></th>
+                                                            <th>No</th>
+                                                            <th>주문일시</th>
+                                                            <th>판매상품명</th>
+                                                            <th>쿠폰번호</th>
+                                                            <th>주문상태</th>
+                                                            <th>수신자번호</th>
+                                                            <th>문자전송일시</th>
+                                                            <th>문자전송상태</th>
+                                                            <th>외부주문번호</th>
+                                                            <th>주문자번호</th>
+                                                            <th>주문자이름</th>
+                                                            <th>유효기간</th>
+                                                            <th>교환일시</th>
+                                                            <th>유형</th>
+                                                            <th>이벤트/POC</th>
+                                                            <th>선물코드(USER_KEY)</th>
+                                                            <th>주문번호(ORDER_ID)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox"></td>
+                                                            <td>No</td>
+                                                            <td>주문일시</td>
+                                                            <td>판매상품명</td>
+                                                            <td>쿠폰번호</td>
+                                                            <td>주문상태</td>
+                                                            <td>수신자번호</td>
+                                                            <td>문자전송일시</td>
+                                                            <td>문자전송상태</td>
+                                                            <td>외부주문번호</td>
+                                                            <td>주문자번호</td>
+                                                            <td>주문자이름</td>
+                                                            <td>유효기간</td>
+                                                            <td>교환일시</td>
+                                                            <td>유형</td>
+                                                            <td>이벤트/POC</td>
+                                                            <td>선물코드(USER_KEY)</td>
+                                                            <td>주문번호(ORDER_ID)</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <p class="border-top no-data mb-0 d-flex align-items-center justify-content-center">
+                                                    "704412357895"에 대한 검색 결과가 없습니다.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer border-0 d-block text-center">
+                                            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">닫기</button>
+                                            <div class="d-flex justify-content-between" style="flex: 1;">
+                                                <button type="button" class="btn btn-sm btn-secondary">선택추가</button>
+                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">취소</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 상품 추가 레이어 팝업 -->
+
+                            <script>
+                                // 은행 직접입력 선택 시
+                                $(document).on('change', '#select-bank', function() {
+                                    if (this.value == 'direct') {
+                                        $('#bank-input').show();
+                                    } else {
+                                        $('#bank-input').hide();
+                                    }
+                                });
+                                // 환불금액 직접입력 체크박스 선택 시, 사유 입력 박스 show/hide
+                                $(document).on('click', '.refund-amount-check', function() {
+                                    let $input = $(this).parents('td').eq(0).find('.refund-amount-input');
+                                    if ($(this).prop('checked')) {
+                                        $input.show();
+                                    } else {
+                                        $input.hide();
+                                    }
+                                });
+                                // 상품 제거 버튼 클릭 시
+                                $(document).on("click", '.btn-delete-product', function() {
+                                    $(this).parents('.table').remove();
+                                });
+                                // 상품 추가 팝업에서 체크박스 선택 시, 모든 체크박스 체크 됨
+                                $(document).on('click', '#add-product-modal .table thead .select-all', function() {
+                                    $('#add-product-modal .table tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'));
+                                });
+                            </script>
+
+                            <!-- contents 영역 끝-->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

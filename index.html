@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>쿠펀 관리자페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
+    <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/commons-validator-1.3.1-compress.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery-1.4.2.min.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.alphanumeric.pack.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.filestyle.mini.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.form.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.validate.min.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/util.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/window.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/file.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/string.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/selectbox.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/Treeview/ua.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/Treeview/ftiens4.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/calendar.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar-win2k-cold-1.css" />
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/calendar-setup.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/js/jscalendar-1.0/lang/calendar-ko-utf8.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/struts/utils.js"></script>
+
+    <!-- v2 -->
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/commAjax.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/lib/handlebars-v4.0.12.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/helper.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- 환불처리 CSS -->
+    <link rel="stylesheet" href="/css/refund.css">
+
+</head>
+
+<body>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#04466c">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <!-- top 영역 시작 -->
+                <table style="width:100%; height:100; border:0; cellspacing:0; cellpadding:0;">
+                    <tr>
+                        <td width="200" rowspan="3" align="center">
+                        </td>
+                        <td align="right">
+                            <div id="top">
+                                <h1></h1>
+                                <h4>김재홍님 반갑습니다.</h4>
+                                <h2><a href="/v2/user/infoUpdate.om" title="정보수정"></a></h2>
+                                <h3>
+                                    <a href="/v2/login/logout.om" title="로그아웃"></a>
+                                </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <table style="width:700; border:0; cellspacing:0; cellpadding:0;">
+                                <tr>
+                                    <td align="center">
+                                        <div id="nav">
+                                            <ul>
+                                                <li><a href="/v2/user/list.om?uppermenuId=1" class="menu">계정관리</a></li>
+                                                <li><a href="/goods/list.coufun?uppermenuId=2" class="menu">상품관리</a></li>
+                                                <li><a href="/poc/list.coufun?uppermenuId=3" class="menu">제휴사및POC관리</a></li>
+                                                <li><a href="/systemconfig/list.coufun?uppermenuId=9" class="menu">환경설정</a></li>
+                                                <li><a href="/statistics/poc_list.coufun?uppermenuId=32" class="menu">통계관리</a></li>
+                                                <li><a href="/calculation/calculation_define_list.coufun?uppermenuId=37" class="menu">대사</a></li>
+                                                <li><a href="/btob_agency/list.coufun?uppermenuId=42" class="menu">B2B 회원관리</a></li>
+                                                <li><a href="/btob_send/list.coufun?uppermenuId=45" class="menu">B2B 발송관리</a></li>
+                                                <li><a href="/btob_event/list.coufun?uppermenuId=49" class="menu">B2B 이벤트관리</a></li>
+                                                <li><a href="/cs_new/list.coufun?uppermenuId=61" class="menu">C/S관리</a></li>
+                                                <li><a href="/selling_calculation/selectCalClientMonth.coufun?uppermenuId=67" class="menu">정산</a></li>
+                                                <li><a href="/oper_function/rcompany_coupon_rb_list.coufun?uppermenuId=108" class="menu">운영기능</a></li>
+                                                <li><a href="/company/companyList.coufun?uppermenuId=175" class="menu">거래처관리</a></li>
+                                                <li><a href="/sales/companySalesList.coufun?uppermenuId=177" class="menu">매출</a></li>
+                                                <li><a href="/couponmall/category.coufun?uppermenuId=182" class="menu">쿠폰몰</a></li>
+                                                <li><a href="/admin_system/calbatchlist.coufun?uppermenuId=187" class="menu">시스템</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- top 영역 끝-->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="205" valign="top">
+                            <!-- left 영역 시작 -->
+                            <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top">
+                                        <table width="200" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <div id="left">
+                                                        <h1>C/S관리</h1>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/cs_new/list.coufun">주문관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/cs_new/sc_list.coufun">B2C 회원관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/cs_new/delivery_list.coufun">배송관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/cs_new/qnaList.coufun">영랩/예스쿠폰 Q&A</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/cs_new/sscd_list.coufun">삼성카드인증번호조회</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/adminalarm/list.coufun">기한만료 알림관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a
+                                                                    href="/lgu_ordermng/orderlist.coufun">LGU+주문관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/lgu_sendmng/sendlist.coufun">LGU+발송관리</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/cs_new/">환불관리</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- left 영역 끝-->
+                        </td>
+                        <td align="left" valign="top">
+                            <!-- contents 영역 시작 -->
+
+                            <div class="cs refund">
+                            
+                                <!-- 탭 영역 -->
+                                <ul class="nav nav-tabs my-2" style="width: 1010px;">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="/cs_new/account.html">계좌 등록</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/cs_new/checking.html">확인 중(9999)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/cs_new/processing.html">처리 중(9999)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/cs_new/pending.html">보류 중(9999)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/cs_new/complete.html">완료</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/cs_new/statistics.html">통계</a>
+                                    </li>
+                                </ul>
+                                <!-- // 탭 영역 -->
+
+                            </div>
+
+                            <!-- contents 영역 끝-->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

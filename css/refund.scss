@@ -1,0 +1,162 @@
+.cs.refund {
+    width: 1010px;
+    font-size: 12px;
+    .nav-link {
+        font-weight: bold;
+        color: var(--secondary);
+        &.active {
+            color: #000;
+        }
+    }
+    .form-control-sm,
+    .btn-sm {
+        font-size: 11px;
+    }
+    .table {
+        th {
+            border-bottom: 0;
+            background: var(--light);
+        }
+        th, td {
+            padding: 5px;
+            font-size: 11px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        tbody {
+            th, td {
+                height: 37px;
+            }
+        }
+        .no-data {
+            height: 50px;
+        }
+        .total {
+            th, td {
+                background: var(--light);
+            }
+        }
+    }
+    .search {
+        height: 26px;
+        .form-control {
+            width: 120px;
+        }
+    }
+    ::placeholder {
+        color: #ccc;
+    }
+}
+.cs.refund.account {
+    .table {
+        th {
+            width: 100px;
+            background: var(--light);
+            font-size: 11px;
+            vertical-align: middle;
+        }
+        .form-control {
+            width: 200px;
+        }
+    }
+}
+.cs.refund.checking.form {
+    .form-control {
+        width: 120px;
+    }
+    .table {
+        table-layout: fixed;
+        th {
+            height: 37px;
+            text-align: left;
+        }
+        td {
+            text-align: left;
+            height: 37px;
+        }   
+    }
+    .total {
+        td {
+            color: var(--red);
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
+}
+.datepicker {
+    .datepicker-days {
+        th, td {
+            padding: 8px;
+            font-size: 12px;
+        }
+    }
+}
+.refund-modal {
+    font-size: 12px;
+    .modal-header {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 0;
+        background: var(--light);
+        .modal-title {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .close {
+            font-size: 14px;
+        }
+    }
+    .table-responsive {
+        max-height: 400px;
+    }
+    .table {
+        th {
+            border-bottom: 0;
+            background: var(--light);
+        }
+        th, td {
+            height: 30px;
+            padding: 5px;
+            font-size: 11px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .no-data {
+            height: 50px;
+        }
+    }
+    .form-control,
+    .btn {
+        font-size: 11px!important;
+    }
+    .no-data {
+        height: 50px;
+    }
+    a:not(.btn) {
+        text-decoration: underline;
+    }
+}
+// #add-product-modal.refund-modal {
+//     .modal-dialog {
+//         max-width: 1000px;
+//     }
+// }
+.cs.refund {
+    .table {
+        td a:not(.btn) {
+            font-size: 11px;
+            font-family: verdana, Gulim;
+            text-decoration: underline;
+        }
+    }
+}
+#refund-request-details.refund-modal {
+    .table {
+        table-layout: fixed;
+        tbody {
+            th, td {
+                text-align: left;
+            }
+        }
+    }
+}
