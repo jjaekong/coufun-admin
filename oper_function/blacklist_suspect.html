@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
     <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
-    <script language="JavaScript" src="https://tadmin.coufun.kr/js/commons-validator-1.3.1-compress.js"></script>
+    <!-- <script language="JavaScript" src="https://tadmin.coufun.kr/js/commons-validator-1.3.1-compress.js"></script>
     <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery-1.4.2.min.js"></script>
     <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.alphanumeric.pack.js"></script>
     <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.filestyle.mini.js"></script>
     <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.form.js"></script>
-    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.validate.min.js"></script>
+    <script language="JavaScript" src="https://tadmin.coufun.kr/js/jquery.validate.min.js"></script> -->
     <script language="JavaScript" src="https://tadmin.coufun.kr/js/util.js"></script>
     <script language="JavaScript" src="https://tadmin.coufun.kr/js/window.js"></script>
     <script language="JavaScript" src="https://tadmin.coufun.kr/js/file.js"></script>
@@ -356,7 +356,7 @@
                                 모달 보이기: $('#loading').modal('show')
                                 모달 숨기기: $('#loading').modal('hide')
                             -->
-                            <div class="modal blacklist-modal" tabindex="-1" role="dialog" id="suspect-details-modal">
+                            <div class="modal blacklist-modal" tabindex="-1" role="dialog" id="suspect-details-modal" data-backdrop="false" style="height: 100vh; background: rgba(0, 0, 0, .5)" data-keyboard="false">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -450,7 +450,7 @@
                             <!-- // 로딩 모달 -->
 
                             <!-- 구매채널 관리 모달 -->
-                            <div class="modal blacklist-modal" tabindex="-1" role="dialog" id="purchasing-channel-modal">
+                            <div class="modal blacklist-modal" tabindex="-1" role="dialog" id="purchasing-channel-modal" data-backdrop="false" style="height: 100vh; background: rgba(0, 0, 0, .5)" data-keyboard="false">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
