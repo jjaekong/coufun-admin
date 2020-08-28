@@ -1,0 +1,51 @@
+.privacy-destruction {
+    width: 1010px;
+    font-size: 12px;
+    .form-control-sm,
+    .btn-sm {
+        font-size: 11px;
+    }
+    .table {
+        th {
+            border-bottom: 0;
+            background: var(--light);
+        }
+        th, td {
+            padding: 5px;
+            font-size: 11px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        tbody {
+            th, td {
+                height: 37px;
+            }
+        }
+        .no-data {
+            height: 50px;
+        }
+        .total {
+            th, td {
+                background: var(--light);
+            }
+        }
+    }
+    .search {
+        height: 26px;
+        .form-control {
+            width: 120px;
+        }
+    }
+    ::placeholder {
+        color: #ccc;
+    }
+}
+
+.datepicker {
+    .datepicker-days {
+        th, td {
+            padding: 8px;
+            font-size: 12px;
+        }
+    }
+}
