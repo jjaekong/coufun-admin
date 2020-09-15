@@ -1,0 +1,99 @@
+@charset "UTF-8";
+.calculation {
+  width: 1010px;
+  font-size: 12px;
+}
+.calculation .page-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.calculation .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.calculation .table th, .calculation .table td {
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.calculation .table tbody th, .calculation .table tbody td {
+  height: 37px;
+}
+.calculation .table .no-data {
+  height: 50px;
+}
+.calculation .table .total th, .calculation .table .total td {
+  background: var(--light);
+  font-weight: bold;
+}
+.calculation .table a {
+  color: #444;
+  text-decoration: underline;
+}
+.calculation .table .material-icons {
+  font-size: 1.2rem;
+}
+.calculation ::placeholder {
+  color: #ccc;
+}
+.calculation .form-control,
+.calculation .btn-sm {
+  font-size: 11px;
+}
+.calculation .diff-data .autocomplete .datainput + .datareset {
+  display: none;
+}
+.calculation .diff-data .autocomplete .datainput:read-only + .datareset {
+  display: block;
+}
+
+.calculation-modal {
+  font-size: 12px;
+  font-family: verdana, Gulim;
+}
+.calculation-modal .modal-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0;
+  background: var(--light);
+}
+.calculation-modal .modal-header .modal-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+.calculation-modal .modal-header .close {
+  font-size: 14px;
+}
+.calculation-modal .custom-file-label:after {
+  content: "파일 선택";
+}
+.calculation-modal .table-responsive {
+  max-height: 400px;
+}
+.calculation-modal .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.calculation-modal .table th, .calculation-modal .table td {
+  height: 30px;
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.calculation-modal .table .no-data {
+  height: 50px;
+}
+.calculation-modal .form-control,
+.calculation-modal .btn {
+  font-size: 11px !important;
+}
+.calculation-modal .no-data {
+  height: 50px;
+}
+.calculation-modal a:not(.btn) {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=calculation.css.map */

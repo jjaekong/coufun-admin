@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>쿠펀 관리자페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
+    <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- v2 -->
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/commAjax.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/lib/handlebars-v4.0.12.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/helper.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- 환불처리 CSS -->
+    <link rel="stylesheet" href="/css/calculation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#04466c">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <!-- top 영역 시작 -->
+                <table style="width:100%; height:100; border:0; cellspacing:0; cellpadding:0;">
+                    <tr>
+                        <td width="200" rowspan="3" align="center">
+                        </td>
+                        <td align="right">
+                            <div id="top">
+                                <h1></h1>
+                                <h4>김재홍님 반갑습니다.</h4>
+                                <h2><a href="/v2/user/infoUpdate.om" title="정보수정"></a></h2>
+                                <h3>
+                                    <a href="/v2/login/logout.om" title="로그아웃"></a>
+                                </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <table style="width:700; border:0; cellspacing:0; cellpadding:0;">
+                                <tr>
+                                    <td align="center">
+                                        <div id="nav">
+                                            <ul>
+                                                <li><a href="/v2/user/list.om?uppermenuId=1" class="menu">계정관리</a></li>
+                                                <li><a href="/goods/list.coufun?uppermenuId=2" class="menu">상품관리</a></li>
+                                                <li><a href="/poc/list.coufun?uppermenuId=3" class="menu">제휴사및POC관리</a></li>
+                                                <li><a href="/systemconfig/list.coufun?uppermenuId=9" class="menu">환경설정</a></li>
+                                                <li><a href="/statistics/poc_list.coufun?uppermenuId=32" class="menu">통계관리</a></li>
+                                                <li><a href="/calculation/calculation_define_list.coufun?uppermenuId=37" class="menu">대사</a></li>
+                                                <li><a href="/btob_agency/list.coufun?uppermenuId=42" class="menu">B2B 회원관리</a></li>
+                                                <li><a href="/btob_send/list.coufun?uppermenuId=45" class="menu">B2B 발송관리</a></li>
+                                                <li><a href="/btob_event/list.coufun?uppermenuId=49" class="menu">B2B 이벤트관리</a></li>
+                                                <li><a href="/cs_new/list.coufun?uppermenuId=61" class="menu">C/S관리</a></li>
+                                                <li><a href="/selling_calculation/selectCalClientMonth.coufun?uppermenuId=67" class="menu">정산</a></li>
+                                                <li><a href="/oper_function/rcompany_coupon_rb_list.coufun?uppermenuId=108" class="menu">운영기능</a></li>
+                                                <li><a href="/company/companyList.coufun?uppermenuId=175" class="menu">거래처관리</a></li>
+                                                <li><a href="/sales/companySalesList.coufun?uppermenuId=177" class="menu">매출</a></li>
+                                                <li><a href="/couponmall/category.coufun?uppermenuId=182" class="menu">쿠폰몰</a></li>
+                                                <li><a href="/admin_system/calbatchlist.coufun?uppermenuId=187" class="menu">시스템</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- top 영역 끝-->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="205" valign="top">
+                            <!-- left 영역 시작 -->
+                            <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top">
+                                        <table width="200" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <div id="left">
+                                                        <h1>정산 관리</h1>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/calculation/calculation_list.html">정산데이터</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- left 영역 끝-->
+                        </td>
+                        <td align="left" valign="top">
+                            <!-- contents 영역 시작 -->
+
+                            <div class="calculation">
+
+                                <h4 class="page-title mt-2 mb-3">대사 데이터</h4>
+
+                                <!-- 차이데이터 영역 -->
+                                <div class="row justify-content-between align-items-center mb-2">
+                                    <div class="col col-auto"><b>차이 데이터</b></div>
+                                    <div class="col col-auto"><button class="btn btn-sm btn-secondary">엑셀 업로드</button></div>
+                                </div>
+                                <table class="table border-bottom diff-data">
+                                    <colgroup>
+                                        <col style='width: 120px'>
+                                        <col style="width: calc((1010px - 120px * 3) / 3)">
+                                        <col style='width: 120px'>
+                                        <col style="width: calc((1010px - 120px * 3) / 3)">
+                                        <col style='width: 120px'>
+                                        <col style="width: calc((1010px - 120px * 3) / 3)">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>차이종류*</th>
+                                            <td>
+                                                <select class="form-control form-control-sm diff-type">
+                                                    <option value="0">선택하세요</option>
+                                                    <option value="1">자사만</option>
+                                                    <option value="2">제휴사만</option>
+                                                    <option value="3">금액상이</option>
+                                                    <option value="4">중복처리</option>
+                                                    <option value="5">데이터 매칭</option>
+                                                </select>
+                                            </td>
+                                            <th>쿠폰번호*</th>
+                                            <td>
+                                                <div class="autocomplete">
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" class="form-control form-control-sm datainput coupon-number" list="coupon-list">
+                                                        <button class="btn btn-sm btn-secondary p-0 ml-2 datareset">
+                                                            <span class="material-icons">close</span>
+                                                        </button>
+                                                    </div>
+                                                    <!-- #dev: 차이종류를 선택했을 때, 아래 리스트를 변경해 주세요. -->
+                                                    <datalist id="coupon-list">
+                                                        <option value="1111">AAAA(발행완료)</option>
+                                                        <option value="2222">BBBB(교환완료)</option>
+                                                    </datalist>
+                                                </div>
+                                            </td>
+                                            <th>승인번호</th>
+                                            <td>
+                                                <div class="autocomplete">
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" class="form-control form-control-sm datainput approved-number" list="approved-list">
+                                                        <button class="btn btn-sm btn-secondary p-0 ml-2 datareset">
+                                                            <span class="material-icons">close</span>
+                                                        </button>
+                                                    </div>
+                                                    <!-- #dev: 차이종류를 선택했을 때, 아래 리스트를 변경해 주세요. -->
+                                                    <datalist id="approved-list">
+                                                        <option value="1111">AAAA</option>
+                                                        <option value="2222">BBBB</option>
+                                                        <option value="3333">CCCC</option>
+                                                        <option value="4444">DDDD</option>
+                                                    </datalist>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>상품바코드</th>
+                                            <td class="text-left">
+                                                <input type="text" class="form-control form-control-sm product-barcode">
+                                            </td>
+                                            <th>판매상품</th>
+                                            <td class="text-left">
+                                                <input type="text" class="form-control form-control-sm product-number">
+                                            </td>
+                                            <th>판매상품명</th>
+                                            <td class="text-left">
+                                                <input type="text" class="form-control form-control-sm product-name">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>상품유형-정산기준</th>
+                                            <td class="text-left">
+                                                <input type="text" class="form-control form-control-sm product-type">
+                                            </td>
+                                            <th>발행일시</th>
+                                            <td class="text-right">
+                                                <input type="datetime-local" class="form-control form-control-sm issue-date">
+                                            </td>
+                                            <th>교환일시</th>
+                                            <td class="text-right">
+                                                <input type="datetime-local" class="form-control form-control-sm exchange-date">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>정가(원)*</th>
+                                            <td class="text-right">
+                                                <input type="text" class="form-control form-control-sm text-right selling-price">
+                                            </td>
+                                            <th>수수료 매출(원)</th>
+                                            <td class="text-right">
+                                                <input type="text" class="form-control form-control-sm text-right selling-fee">
+                                            </td>
+                                            <th>주문/취소*</th>
+                                            <td class="text-left">
+                                                <select class="form-control-sm form-control order-state">
+                                                    <option value="">선택</option>
+                                                    <option value="">주문</option>
+                                                    <option value="">취소</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>지점코드</th>
+                                            <td class="text-left">
+                                                <input type="text" class="form-control form-control-sm branch-code">
+                                            </td>
+                                            <th>지점명</th>
+                                            <td class="text-left">
+                                                <input type="text" class="form-control form-control-sm branch-name">
+                                            </td>
+                                            <th>포스번호</th>
+                                            <td class="text-left">
+                                                <input type="text" class="form-control form-control-sm pos-no">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- // 차이데이터 영역 -->
+
+                                <!-- 조정데이터 영역 -->
+                                <div class="mb-3 mt-5"><b>조정 데이터</b></div>
+                                <table class="table border-bottom">
+                                    <col style="width: 150px">
+                                    <tbody>
+                                        <tr>
+                                            <th>데이터 조정*</th>
+                                            <td>
+                                                <select class="form-control form-control-sm" style="width: 200px">
+                                                    <option value="">정산반영</option>
+                                                    <option value="">정산반영</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- // 조정데이터 영역 -->
+
+                            <script>
+                                (function($) {
+
+                                    // 쿠펀번호 입력 시, 인풋창을 readonly로 변경
+                                    $(document).on('change', '.autocomplete .datainput', function() {
+                                        if ($(this).val()) {
+                                            $(this).prop('readonly', true)
+                                        }
+                                    })
+
+                                    // 선택된 쿠폰번호/승인번호를 reset하는 버튼(.datareset)을 클릭 시, 인풋창의 readonly 속성 제거
+                                    $(document).on('click', '.autocomplete .datareset', function datareset() {
+                                        $(this).siblings('.datainput').eq(0)
+                                            .val("")
+                                            .prop('readonly', false)
+                                    })
+
+                                    // function resetDiffData() {
+                                    //     $('input.form-control').val('')
+                                    //     $(".order-state option:eq(0)").prop('selected', true)
+                                    //     $('.autocomplete .datareset').trigger('click')
+                                    // }
+
+                                    // 차이종류 선택 시 입력항목을 초기화
+                                    $(document).on('change', '.diff-type', function() {
+                                        $('input.form-control').val('')
+                                        $(".order-state option:eq(0)").prop('selected', true)
+                                        $('.autocomplete .datareset').trigger('click')
+                                    })
+
+                                    // 쿠폰번호 선택 시, 특정항목 활성/비활성
+                                    $(document).on('change', '.coupon-number', function() {
+                                        console.log( 'change coupon number' )
+                                        console.log( $(this).val() )
+                                        var coupon
+                                    })
+
+                                    // 승인번호 선택 시, 특정항목 활성/비활성
+                                    $(document).on('change', '.approved-number', function() {
+                                        console.log( 'change approved number' )
+                                        console.log( $(this).val() )
+                                    })
+
+                                })(jQuery);
+                            </script>
+
+                            <!-- contents 영역 끝-->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
