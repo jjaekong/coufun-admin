@@ -93,6 +93,12 @@
                                                             <li>
                                                                 <a href="/calculation/calculation_list.html">정산데이터</a>
                                                             </li>
+                                                            <li>
+                                                                <a href="/calculation/confirm_purchase.html">구매확정</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/poc/partner_list.html">정산단위 관리</a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </td>
@@ -113,7 +119,7 @@
                                 <!-- 차이데이터 영역 -->
                                 <div class="row justify-content-between align-items-center mb-2">
                                     <div class="col col-auto"><b>차이 데이터</b></div>
-                                    <div class="col col-auto"><button class="btn btn-sm btn-secondary">엑셀 업로드</button></div>
+                                    <div class="col col-auto"><button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#upload-diff-data">엑셀 업로드</button></div>
                                 </div>
                                 <table class="table border-bottom diff-data">
                                     <colgroup>
@@ -132,24 +138,23 @@
                                                     <option value="0">선택하세요</option>
                                                     <option value="1">자사만</option>
                                                     <option value="2">제휴사만</option>
-                                                    <option value="3">금액상이</option>
+                                                    <option value="3">가격상이</option>
                                                     <option value="4">중복처리</option>
-                                                    <option value="5">데이터 매칭</option>
                                                 </select>
                                             </td>
                                             <th>쿠폰번호*</th>
                                             <td>
                                                 <div class="autocomplete">
                                                     <div class="d-flex align-items-center">
-                                                        <input type="text" class="form-control form-control-sm datainput coupon-number" list="coupon-list">
-                                                        <button class="btn btn-sm btn-secondary p-0 ml-2 datareset">
+                                                        <input type="text" class="form-control form-control-sm datainput coupon-no" list="coupon-list" readonly required>
+                                                        <button class="btn btn-sm btn-secondary p-0 ml-2 datareset btn-reset-coupon-no">
                                                             <span class="material-icons">close</span>
                                                         </button>
                                                     </div>
                                                     <!-- #dev: 차이종류를 선택했을 때, 아래 리스트를 변경해 주세요. -->
                                                     <datalist id="coupon-list">
-                                                        <option value="1111">AAAA(발행완료)</option>
-                                                        <option value="2222">BBBB(교환완료)</option>
+                                                        <option value="A">20200915173400(발행완료)</option>
+                                                        <option value="B">20200915173500(교환완료)</option>
                                                     </datalist>
                                                 </div>
                                             </td>
@@ -157,8 +162,8 @@
                                             <td>
                                                 <div class="autocomplete">
                                                     <div class="d-flex align-items-center">
-                                                        <input type="text" class="form-control form-control-sm datainput approved-number" list="approved-list">
-                                                        <button class="btn btn-sm btn-secondary p-0 ml-2 datareset">
+                                                        <input type="text" class="form-control form-control-sm datainput approved-no" list="approved-list" readonly required>
+                                                        <button class="btn btn-sm btn-secondary p-0 ml-2 datareset btn-reset-approved-no">
                                                             <span class="material-icons">close</span>
                                                         </button>
                                                     </div>
@@ -175,43 +180,50 @@
                                         <tr>
                                             <th>상품바코드</th>
                                             <td class="text-left">
-                                                <input type="text" class="form-control form-control-sm product-barcode">
+                                                <input type="text" class="form-control form-control-sm product-barcode" readonly>
                                             </td>
-                                            <th>판매상품</th>
+                                            <th>판매상품ID</th>
                                             <td class="text-left">
-                                                <input type="text" class="form-control form-control-sm product-number">
+                                                <input type="text" class="form-control form-control-sm product-id" readonly>
                                             </td>
                                             <th>판매상품명</th>
                                             <td class="text-left">
-                                                <input type="text" class="form-control form-control-sm product-name">
+                                                <input type="text" class="form-control form-control-sm product-name" readonly>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>상품유형-정산기준</th>
                                             <td class="text-left">
-                                                <input type="text" class="form-control form-control-sm product-type">
+                                                <select class="form-control form-control-sm product-type" disabled>
+                                                    <option value="">선택하세요</option>
+                                                    <option value="">교환권-발행</option>
+                                                    <option value="">교환권-교환</option>
+                                                    <option value="">금액권-발행</option>
+                                                    <option value="">금액권-교환(액면가)</option>
+                                                    <option value="">금액권-교환(실교환분)</option>
+                                                </select>
                                             </td>
                                             <th>발행일시</th>
                                             <td class="text-right">
-                                                <input type="datetime-local" class="form-control form-control-sm issue-date">
+                                                <input type="datetime-local" class="form-control form-control-sm issue-date" readonly>
                                             </td>
                                             <th>교환일시</th>
                                             <td class="text-right">
-                                                <input type="datetime-local" class="form-control form-control-sm exchange-date">
+                                                <input type="datetime-local" class="form-control form-control-sm exchange-date" readonly>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>정가(원)*</th>
                                             <td class="text-right">
-                                                <input type="text" class="form-control form-control-sm text-right selling-price">
+                                                <input type="text" class="form-control form-control-sm text-right selling-price" readonly>
                                             </td>
                                             <th>수수료 매출(원)</th>
                                             <td class="text-right">
-                                                <input type="text" class="form-control form-control-sm text-right selling-fee">
+                                                <input type="text" class="form-control form-control-sm text-right selling-fee" readonly>
                                             </td>
                                             <th>주문/취소*</th>
                                             <td class="text-left">
-                                                <select class="form-control-sm form-control order-state">
+                                                <select class="form-control-sm form-control order-state" disabled>
                                                     <option value="">선택</option>
                                                     <option value="">주문</option>
                                                     <option value="">취소</option>
@@ -221,15 +233,15 @@
                                         <tr>
                                             <th>지점코드</th>
                                             <td class="text-left">
-                                                <input type="text" class="form-control form-control-sm branch-code">
+                                                <input type="text" class="form-control form-control-sm branch-code" readonly>
                                             </td>
                                             <th>지점명</th>
                                             <td class="text-left">
-                                                <input type="text" class="form-control form-control-sm branch-name">
+                                                <input type="text" class="form-control form-control-sm branch-name" readonly>
                                             </td>
                                             <th>포스번호</th>
                                             <td class="text-left">
-                                                <input type="text" class="form-control form-control-sm pos-no">
+                                                <input type="text" class="form-control form-control-sm pos-no" readonly>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -238,67 +250,251 @@
 
                                 <!-- 조정데이터 영역 -->
                                 <div class="mb-3 mt-5"><b>조정 데이터</b></div>
-                                <table class="table border-bottom">
-                                    <col style="width: 150px">
+                                <table class="table border-bottom adjust-data">
+                                    <colgroup>
+                                        <col style='width: 120px'>
+                                        <col style="width: calc((1010px - 120px * 3) / 3)">
+                                        <col style='width: 120px'>
+                                        <col style="width: calc((1010px - 120px * 3) / 3)">
+                                        <col style='width: 120px'>
+                                        <col style="width: calc((1010px - 120px * 3) / 3)">
+                                    </colgroup>
                                     <tbody>
                                         <tr>
                                             <th>데이터 조정*</th>
-                                            <td>
-                                                <select class="form-control form-control-sm" style="width: 200px">
-                                                    <option value="">정산반영</option>
-                                                    <option value="">정산반영</option>
+                                            <td colspan="5">
+                                                <select class="form-control form-control-sm adjust-type" style="width: 200px">
+                                                    <option value="1">정산반영</option>
+                                                    <option value="2">정산제외</option>
+                                                    <option value="3">가격변경</option>
+                                                    <option value="4">정산연월 변경</option>
                                                 </select>
                                             </td>
+                                        </tr>
+                                        <tr class="change-price">
+                                            <th>정가*</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm text-right">
+                                            </td>
+                                            <th>교환제휴사<br>부담금(원)*</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm text-right">
+                                            </td>
+                                            <th>공급제휴사<br>부담금(원)*</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm text-right">
+                                            </td>
+                                        </tr>
+                                        <tr class="change-month">
+                                            <th>데이터 조정*</th>
+                                            <td>
+                                                <input type="month" class="form-control form-control-sm">
+                                            </td>
+                                            <th></th>
+                                            <td></td>
+                                            <th></th>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <!-- // 조정데이터 영역 -->
 
-                            <script>
-                                (function($) {
+                                <div class="btn-area d-flex justify-content-center align-items-center mt-5">
+                                    <button type="submit" class="btn btn-sm btn-secondary">저장</button>
+                                    <a href="calculation_list.html" class="btn btn-sm btn-secondary ml-2">목록으로</a>
+                                </div>
 
-                                    // 쿠펀번호 입력 시, 인풋창을 readonly로 변경
-                                    $(document).on('change', '.autocomplete .datainput', function() {
-                                        if ($(this).val()) {
-                                            $(this).prop('readonly', true)
+                                <!-- 제휴사 데이터 등록 모달 -->
+                                <div id="upload-diff-data" class="modal calculation-modal" tabindex="-1" data-keyboard="false" data-backdrop="static">
+                                    <div class="modal-dialog" style="max-width: 400px;">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">차이 데이터 등록</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label for="template-list">교환제휴사</label>
+                                                    <input type="text" class="form-control form-control-sm" list="datalist" id="template-list">
+                                                    <datalist id="datalist">
+                                                        <option value="[EC0010] 7-11(교환권)">[EC0010] 7-11(교환권)</option>
+                                                        <option value="[EC0010] 7-11(금액권)">[EC0010] 7-11(금액권)</option>
+                                                    </datalist>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="upload-file">엑셀 업로드</label>
+                                                    <input type="file" id="upload-file" class="form-control form-control-sm" accept=".xls, .xlsx">
+                                                </div>
+                                                <div class="d-flex justify-content-center mt-3">
+                                                    <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                    <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- // 제휴사 데이터 등록 모달 -->
+
+                                <script>
+                                    (function($) {
+
+                                        /* 발행정보를 입력하는 함수 */
+                                        function enterIssueData() {
+                                            $('.product-barcode').val('870746032540')
+                                            $('.product-id').val('ABCDE12345678')
+                                            $('.product-name').val('빽다방) 앗메리카노\(HOT\)')
+                                            $('.product-type option:eq(1)').prop('selected', true)
+                                            $('.issue-date').val('2020-09-16T11:22:33')
+                                            $('.selling-price').val('1,500')
+                                            $('.selling-fee').val('45')
                                         }
-                                    })
 
-                                    // 선택된 쿠폰번호/승인번호를 reset하는 버튼(.datareset)을 클릭 시, 인풋창의 readonly 속성 제거
-                                    $(document).on('click', '.autocomplete .datareset', function datareset() {
-                                        $(this).siblings('.datainput').eq(0)
-                                            .val("")
-                                            .prop('readonly', false)
-                                    })
+                                        /* 발행정보를 초기화하는 함수 */
+                                        function resetIssueData() {
+                                            $('.coupon-no').val('')
+                                            $('.product-barcode').val('')
+                                            $('.product-id').val('')
+                                            $('.product-name').val('')
+                                            $('.product-type option:eq(0)').prop('selected', true)
+                                            $('.issue-date').val('')
+                                            $('.selling-price').val('')
+                                            $('.selling-fee').val('')
+                                        }
+                                        
+                                        /* 교환정보를 입력하는 함수 */
+                                        function enterExchangeData() {
+                                            $('.exchange-date').val('2020-09-16T11:22:33')
+                                            $('.order-state option:eq(2)').prop('selected', true)
+                                            $('.branch-code').val('12352')
+                                            $('.branch-name').val('여의도점')
+                                            $('.pos-no').val('01')
+                                        }
+                                        
+                                        /* 교환정보를 초기화하는 함수 */
+                                        function resetExchangeData() {
+                                            $('.approved-no').prop('readonly', false).val('')
+                                            $('.exchange-date').val('')
+                                            $('.order-state option:eq(0)').prop('selected', true)
+                                            $('.branch-code').val('')
+                                            $('.branch-name').val('')
+                                            $('.pos-no').val('')
+                                        }
 
-                                    // function resetDiffData() {
-                                    //     $('input.form-control').val('')
-                                    //     $(".order-state option:eq(0)").prop('selected', true)
-                                    //     $('.autocomplete .datareset').trigger('click')
-                                    // }
+                                        // 차이종류 선택 시 입력항목을 초기화
+                                        $(document).on('change', '.diff-type', function() {
+                                            resetIssueData()
+                                            resetExchangeData()
+                                            $('.diff-data input.form-control').prop('readonly', true)
+                                            $('.diff-data .product-type').prop('disabled', true)
+                                            $('.diff-data .product-type option:eq(0)').prop('selected', true)
+                                            $('.diff-data .order-state').prop('disabled', true)
+                                            $('.diff-data .order-state option:eq(0)').prop('selected', true)
+                                            $('.coupon-no').parents('.autocomplete:eq(0)').removeClass('has-reset-btn')
+                                            $('.approved-no').parents('.autocomplete:eq(0)').removeClass('has-reset-btn')
+                                            if ($(this).val() == "0") { // 선택이 없을 경우
+                                                $('.coupon-no').prop('readonly', true)
+                                                $('.approved-no').prop('readonly', true)
+                                            // } else if ($(this).val() == "2") { // 제휴사만 일 경우
+                                            //     $('.coupon-no').prop('readonly', false)
+                                            //     $('.approved-no').prop('readonly', false)
+                                            } else { // 자사, 가격상이, 중복처리 일 경우
+                                                $('.coupon-no').prop('readonly', false)
+                                                $('.approved-no').prop('readonly', true)
+                                            }
+                                        })
 
-                                    // 차이종류 선택 시 입력항목을 초기화
-                                    $(document).on('change', '.diff-type', function() {
-                                        $('input.form-control').val('')
-                                        $(".order-state option:eq(0)").prop('selected', true)
-                                        $('.autocomplete .datareset').trigger('click')
-                                    })
+                                        // 쿠폰번호 선택 시, 특정항목 활성/비활성
+                                        $(document).on('change', '.coupon-no', function() {
+                                            
+                                            if ($('.diff-type').val() == '1' ||
+                                                $('.diff-type').val() == '3' ||
+                                                $('.diff-type').val() == '4') { // 차이종류가 자사만, 금액상이, 중복처리일 경우
+                                                if ($(this).val() == 'A') { // 쿠폰번호가 발행완료인 쿠폰
+                                                    enterIssueData()
+                                                    $('.coupon-no').prop('readonly', true)
+                                                    $('.coupon-no').parents('.autocomplete:eq(0)').addClass('has-reset-btn')
+                                                    $('.approved-no').prop('readonly', false)
+                                                } else if ($(this).val() == 'B') { // 쿠폰번호가 교환완료인 쿠폰
+                                                    enterIssueData()
+                                                    enterExchangeData()
+                                                    $('.coupon-no').prop('readonly', true)
+                                                    $('.coupon-no').parents('.autocomplete:eq(0)').addClass('has-reset-btn')
+                                                    $('.approved-no').val('20200429000000000112')
+                                                    $('.approved-no').prop('readonly', true)
+                                                    $('.approved-no').parents('.autocomplete:eq(0)').addClass('has-reset-btn')
+                                                }
+                                            } else if ($('.diff-type').val() == '2') { // 차이종류가 제휴사만 일 경우
+                                                if ($(this).val() == 'A') { // 발행완료
+                                                    enterIssueData()
+                                                    $('.coupon-no').prop('readonly', true)
+                                                    $('.coupon-no').parents('.autocomplete:eq(0)').addClass('has-reset-btn')
+                                                    $('.approved-no').prop('readonly', false)
+                                                } else if ($(this).val() == 'B') { // 교환완료
+                                                    enterIssueData()
+                                                    enterExchangeData()
+                                                    $('.coupon-no').prop('readonly', true)
+                                                    $('.coupon-no').parents('.autocomplete:eq(0)').addClass('has-reset-btn')
+                                                    $('.approved-no').prop('readonly', false)
+                                                }
+                                                $('.exchange-date').prop('readonly', false)
+                                                $('.order-state').prop('disabled', false)
+                                                $('.branch-code').prop('readonly', false)
+                                                $('.branch-name').prop('readonly', false)
+                                                $('.pos-no').prop('readonly', false)
+                                            }
 
-                                    // 쿠폰번호 선택 시, 특정항목 활성/비활성
-                                    $(document).on('change', '.coupon-number', function() {
-                                        console.log( 'change coupon number' )
-                                        console.log( $(this).val() )
-                                        var coupon
-                                    })
+                                        })
 
-                                    // 승인번호 선택 시, 특정항목 활성/비활성
-                                    $(document).on('change', '.approved-number', function() {
-                                        console.log( 'change approved number' )
-                                        console.log( $(this).val() )
-                                    })
+                                        // 승인번호 선택 시, 특정항목 활성/비활성
+                                        $(document).on('change', '.approved-no', function() {
+                                            $(this).parents('.autocomplete:eq(0)').addClass('has-reset-btn')
+                                            if ($('.diff-type').val() != '2') {
+                                                $(this).prop('readonly', true)
+                                                $('.approved-no').val('20200429000000000112')
+                                                enterExchangeData()
+                                            }
+                                        })
 
-                                })(jQuery);
-                            </script>
+                                        // 쿠폰번호 초기화 버튼 클릭 시, 전체 항목을 초기화
+                                        $(document).on('click', '.btn-reset-coupon-no', function() {
+                                            resetIssueData()
+                                            resetExchangeData()
+                                            $('.diff-data input.form-control').prop('readonly', true)
+                                            $('.diff-data .product-type').prop('disabled', true)
+                                            $('.diff-data .product-type option:eq(0)').prop('selected', true)
+                                            $('.diff-data .order-state').prop('disabled', true)
+                                            $('.diff-data .order-state option:eq(0)').prop('selected', true)
+                                            $('.coupon-no').prop('readonly', false)
+                                            $('.coupon-no').parents('.autocomplete:eq(0)').removeClass('has-reset-btn')
+                                            if ($('.diff-type').val() == '2') {
+                                                $('.approved-no').prop('readonly', false)
+                                            } else {
+                                                $('.approved-no').prop('readonly', true)
+                                            }
+                                            $('.approved-no').parents('.autocomplete:eq(0)').removeClass('has-reset-btn')
+                                        })
+
+                                        // 승인번호 초기화 버튼 클릭 시, 관련 항목을 초기화
+                                        $(document).on('click', '.btn-reset-approved-no', function() {
+                                            resetExchangeData()
+                                            $('.approved-no').prop('readonly', false)
+                                            $('.approved-no').parents('.autocomplete:eq(0)').removeClass('has-reset-btn')
+                                        })
+
+                                        // 데이터 조정 셀렉트 박스 선택 시
+                                        $(document).on('change', '.adjust-data .adjust-type', function() {
+                                            $('.change-price, .change-month').hide()
+                                            if ($(this).val() == '3') {
+                                                $('.change-price').show()
+                                            } else if ($(this).val() == '4') {
+                                                $('.change-month').show()
+                                            }
+                                        })
+
+                                    })(jQuery);
+                                </script>
 
                             <!-- contents 영역 끝-->
                         </td>

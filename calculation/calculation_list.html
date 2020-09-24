@@ -93,6 +93,12 @@
                                                             <li>
                                                                 <a href="/calculation/calculation_list.html">정산데이터</a>
                                                             </li>
+                                                            <li>
+                                                                <a href="/calculation/confirm_purchase.html">구매확정</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/poc/partner_list.html">정산단위 관리</a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </td>
@@ -111,7 +117,7 @@
                                 <h4 class="page-title mt-2">대사 데이터</h4>
                             
                                 <!-- 검색폼 영역 -->
-                                <table class="table border-bottom">
+                                <table class="table mb-4">
                                     <colgroup>
                                         <col style='width: 150px'>
                                         <col style="width: 355px">
@@ -120,7 +126,7 @@
                                     </colgroup>
                                     <tbody>
                                         <tr>
-                                            <th>정산년월*</th>
+                                            <th>정산연월*</th>
                                             <td>
                                                 <input type="month" class="form-control form-control-sm" style="width: 150px;">
                                                 <!--
@@ -171,13 +177,13 @@
                                         수수료 매출 <span class="badge badge-warning">500,000</span>원
                                     </div>
                                     <div class="col text-right">
-                                        <button class="btn btn-sm btn-secondary">제휴사 데이터 등록</button>
+                                        <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#upload-partner-data">제휴사 데이터 등록</button>
                                         <a class="btn btn-sm btn-secondary" href="./calculation_form.html">차이 데이터 등록</a>
                                         <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#matching">미확인 쿠폰</button>
                                     </div>
                                 </div>
 
-                                <table class="table mt-2 border-bottom table-bordered">
+                                <table class="table mt-2 table-bordered table-hover calculation-table">
                                     <thead>
                                         <tr>
                                             <th rowspan="2">정산단위</th>
@@ -199,8 +205,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <!-- #dev: 행의 갯수만큼 rowspan 을 설정해줘야 합니다. -->
-                                            <td rowspan="4">(주)지에스리테일</td>
+                                            <td rowspan="4" class="title">(주)지에스리테일</td><!-- #dev: 행의 갯수만큼 rowspan 을 설정해줘야 합니다. -->
                                             <td>EC0500</td>
                                             <td class="text-left">GS25(카톡)</td>
                                             <td class="text-right">1,000,000</td>
@@ -209,7 +214,7 @@
                                             <td class="text-right">-</td>
                                             <td class="text-right">-</td>
                                             <td><button type="button" class="btn btn-sm btn-secondary p-1"><span class="material-icons">get_app</span></button></td>
-                                            <td rowspan="4">진행중</td>
+                                            <td rowspan="4" class="status">진행중</td><!-- #dev: 행의 갯수만큼 rowspan 을 설정해줘야 합니다. -->
                                             <td><button type="button" class="btn btn-sm btn-secondary p-1"><span class="material-icons">refresh</span></button></td>
                                         </tr>
                                         <tr>
@@ -229,8 +234,8 @@
                                             <td class="text-right">1,000,000</td>
                                             <td class="text-right">-</td>
                                             <td class="text-right">50,000</td>
-                                            <td class="text-right"><a href="#">10</a></td>
-                                            <td class="text-right"><a href="#">10</a></td>
+                                            <td class="text-right"><a href="./difference_data.html">11</a></td>
+                                            <td class="text-right">10</td>
                                             <td><button type="button" class="btn btn-sm btn-secondary p-1"><span class="material-icons">get_app</span></button></td>
                                             <td><button type="button" class="btn btn-sm btn-secondary p-1"><span class="material-icons">refresh</span></button></td>
                                         </tr>
@@ -240,8 +245,8 @@
                                             <td class="text-right">1,000,000</td>
                                             <td class="text-right">-</td>
                                             <td class="text-right">50,000</td>
-                                            <td class="text-right"><a href="#">10</a></td>
-                                            <td class="text-right"><a href="#">10</a></td>
+                                            <td class="text-right"><a href="./difference_data.html">11</a></td>
+                                            <td class="text-right">10</td>
                                             <td><button type="button" class="btn btn-sm btn-secondary p-1"><span class="material-icons">get_app</span></button></td>
                                             <td><button type="button" class="btn btn-sm btn-secondary p-1"><span class="material-icons">refresh</span></button></td>
                                         </tr>
@@ -259,7 +264,7 @@
                                     </tbody>
                                     <tbody>
                                         <tr>
-                                            <td rowspan="4">(주)지에스리테일</td>
+                                            <td rowspan="3" class="title">(주)지에스리테일</td>
                                             <td>EC0500</td>
                                             <td class="text-left">GS25(카톡)</td>
                                             <td class="text-right">1,000,000</td>
@@ -268,18 +273,7 @@
                                             <td class="text-right">-</td>
                                             <td class="text-right">-</td>
                                             <td><button type="button" class="btn btn-sm btn-secondary p-1"><span class="material-icons">get_app</span></button></td>
-                                            <td rowspan="4">진행중</td>
-                                            <td><button type="button" class="btn btn-sm btn-secondary p-1"><span class="material-icons">refresh</span></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>EC0500</td>
-                                            <td class="text-left">GS25(카톡)</td>
-                                            <td class="text-right">1,000,000</td>
-                                            <td class="text-right">-</td>
-                                            <td class="text-right">50,000</td>
-                                            <td class="text-right">-</td>
-                                            <td class="text-right">-</td>
-                                            <td><button type="button" class="btn btn-sm btn-secondary p-1"><span class="material-icons">get_app</span></button></td>
+                                            <td rowspan="3" class="title">진행중</td>
                                             <td><button type="button" class="btn btn-sm btn-secondary p-1"><span class="material-icons">refresh</span></button></td>
                                         </tr>
                                         <tr>
@@ -344,7 +338,7 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title">쿠폰-제휴사 매칭</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
+                                                <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
@@ -352,7 +346,7 @@
                                                 쿠폰번호 중복 <b>00</b>건
                                             </div>
                                             <div class="table-responsive">
-                                                <table class="table table-bordered mb-0">
+                                                <table class="table table-bordered mb-0 table-hover">
                                                     <colgroup>
                                                         <col style="width: 20%">
                                                         <col style="width: 20%">
@@ -456,11 +450,47 @@
                             </div>
                             <!-- // 쿠폰-제휴사 매칭 모달 -->
 
+                            <!-- 제휴사 데이터 등록 모달 -->
+                            <div id="upload-partner-data" class="modal calculation-modal" tabindex="-1" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 400px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">제휴사 데이터 등록</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="template-list">템플릿</label>
+                                                <input type="text" class="form-control form-control-sm" list="datalist" id="template-list">
+                                                <datalist id="datalist">
+                                                    <option value="[EC0010] 7-11(교환권)">[EC0010] 7-11(교환권)</option>
+                                                    <option value="[EC0010] 7-11(금액권)">[EC0010] 7-11(금액권)</option>
+                                                </datalist>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="upload-file">엑셀 업로드</label>
+                                                <input type="file" id="upload-file" class="form-control form-control-sm" accept=".xls, .xlsx">
+                                            </div>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 제휴사 데이터 등록 모달 -->
+
                             <script>
                                 (function($) {
 
                                 })(jQuery);
                             </script>
+
+                            <style>
+                            </style>
 
                             <!-- contents 영역 끝-->
                         </td>

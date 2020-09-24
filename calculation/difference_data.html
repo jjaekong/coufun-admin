@@ -1,0 +1,733 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>쿠펀 관리자페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
+    <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- v2 -->
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/commAjax.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/lib/handlebars-v4.0.12.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/helper.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- 환불처리 CSS -->
+    <link rel="stylesheet" href="/css/calculation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#04466c">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <!-- top 영역 시작 -->
+                <table style="width:100%; height:100; border:0; cellspacing:0; cellpadding:0;">
+                    <tr>
+                        <td width="200" rowspan="3" align="center">
+                        </td>
+                        <td align="right">
+                            <div id="top">
+                                <h1></h1>
+                                <h4>김재홍님 반갑습니다.</h4>
+                                <h2><a href="/v2/user/infoUpdate.om" title="정보수정"></a></h2>
+                                <h3>
+                                    <a href="/v2/login/logout.om" title="로그아웃"></a>
+                                </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <table style="width:700; border:0; cellspacing:0; cellpadding:0;">
+                                <tr>
+                                    <td align="center">
+                                        <div id="nav">
+                                            <ul>
+                                                <li><a href="/v2/user/list.om?uppermenuId=1" class="menu">계정관리</a></li>
+                                                <li><a href="/goods/list.coufun?uppermenuId=2" class="menu">상품관리</a></li>
+                                                <li><a href="/poc/list.coufun?uppermenuId=3" class="menu">제휴사및POC관리</a></li>
+                                                <li><a href="/systemconfig/list.coufun?uppermenuId=9" class="menu">환경설정</a></li>
+                                                <li><a href="/statistics/poc_list.coufun?uppermenuId=32" class="menu">통계관리</a></li>
+                                                <li><a href="/calculation/calculation_define_list.coufun?uppermenuId=37" class="menu">대사</a></li>
+                                                <li><a href="/btob_agency/list.coufun?uppermenuId=42" class="menu">B2B 회원관리</a></li>
+                                                <li><a href="/btob_send/list.coufun?uppermenuId=45" class="menu">B2B 발송관리</a></li>
+                                                <li><a href="/btob_event/list.coufun?uppermenuId=49" class="menu">B2B 이벤트관리</a></li>
+                                                <li><a href="/cs_new/list.coufun?uppermenuId=61" class="menu">C/S관리</a></li>
+                                                <li><a href="/selling_calculation/selectCalClientMonth.coufun?uppermenuId=67" class="menu">정산</a></li>
+                                                <li><a href="/oper_function/rcompany_coupon_rb_list.coufun?uppermenuId=108" class="menu">운영기능</a></li>
+                                                <li><a href="/company/companyList.coufun?uppermenuId=175" class="menu">거래처관리</a></li>
+                                                <li><a href="/sales/companySalesList.coufun?uppermenuId=177" class="menu">매출</a></li>
+                                                <li><a href="/couponmall/category.coufun?uppermenuId=182" class="menu">쿠폰몰</a></li>
+                                                <li><a href="/admin_system/calbatchlist.coufun?uppermenuId=187" class="menu">시스템</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- top 영역 끝-->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="205" valign="top">
+                            <!-- left 영역 시작 -->
+                            <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top">
+                                        <table width="200" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <div id="left">
+                                                        <h1>정산 관리</h1>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/calculation/calculation_list.html">정산데이터</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/calculation/confirm_purchase.html">구매확정</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/poc/partner_list.html">정산단위 관리</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- left 영역 끝-->
+                        </td>
+                        <td align="left" valign="top">
+
+                            <!-- contents 영역 시작 -->
+
+                            <div class="calculation">
+
+                                <h4 class="page-title mt-2">차이 데이터</h4>
+                            
+                                <!-- 검색폼 영역 -->
+                                <table class="table mb-4">
+                                    <colgroup>
+                                        <col style='width: 150px'>
+                                        <col style="width: 355px">
+                                        <col style='width: 150px'>
+                                        <col style="width: 355px">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>정산연월*</th>
+                                            <td>
+                                                <input type="month" class="form-control form-control-sm" style="width: 150px;">
+                                                <!--
+                                                    화면상으로는 2020년 9월로 출력되지만, value 는 2020-09로 읽어짐
+                                                -->
+                                            </td>
+                                            <th>교환제휴사*</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm" list="exchanger-list">
+                                                <datalist id="exchanger-list">
+                                                    <option value="[EC0010] 7-11">[EC0010] 7-11</option>
+                                                    <option value="[EC0500] GS25(카톡)">[EC0500] GS25(카톡)</option>
+                                                    <option value="[EC0110] GS25모바일 상품권">[EC0110] GS25모바일 상품권</option>
+                                                </datalist>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>쿠폰번호</th>
+                                            <td><input type="text" class="form-control form-control-sm"></td>
+                                            <th>차이종류*</th>
+                                            <td>
+                                                <select class="form-control form-control-sm diff-type">
+                                                    <option value="0">선택하세요</option>
+                                                    <option value="1">자사만</option>
+                                                    <option value="2">제휴사만</option>
+                                                    <option value="3">금액상이</option>
+                                                    <option value="4">중복처리</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="4">
+                                                <button type="submit" class="btn btn-sm btn-secondary">조회</button>
+                                                <button type="reset" class="btn btn-sm btn-secondary ml-2">초기화</button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <!-- // 검색폼 영역 -->
+
+                                <div class="row align-items-center">
+                                    <div class="col col-auto">
+                                        조정 <span class="badge badge-warning">00</span> 건 /
+                                        차이 <span class="badge badge-warning">00</span> 건
+                                    </div>
+                                    <div class="col text-right">
+                                        <button class="btn btn-sm btn-secondary">정산 반영</button>
+                                        <button class="btn btn-sm btn-secondary">정산 제외</button>
+                                        <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#change-price">가격 변경</button>
+                                        <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#change-date-only-company">정산연월 변경(자사만)</button>
+                                        <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#change-date-only-partner">정산연월 변경(제휴사만)</button>
+                                    </div>
+                                </div>
+
+                                <table class="table mt-2 border-bottom table-bordered table-hover adjust-data-list" style="width: 1400px">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" class="select-all"></th>
+                                            <th>데이터<br>조정</th>
+                                            <th>
+                                                <a href="#" class="d-flex justify-content-center align-items-center text-decoration-none">
+                                                    <span>쿠폰<br>번호</span>
+                                                    <span class="material-icons">swap_vert</span><!-- #dev: 정렬이 선택되지 않았을 때 -->
+                                                    <!-- <span class="material-icons" style="transform: rotate(-90deg)">trending_flat</span> --><!-- #dev: 오름차순 -->
+                                                    <!-- <span class="material-icons" style="transform: rotate(90deg)">south</span> --><!-- #dev: 내림차순 -->
+                                                </a>
+                                            </th>
+                                            <th>
+                                                <a href="#" class="d-flex justify-content-center align-items-center text-decoration-none">
+                                                    <span>발행<br>일시</span>
+                                                    <!-- <span class="material-icons">swap_vert</span> --><!-- #dev: 정렬이 선택되지 않았을 때 -->
+                                                    <span class="material-icons" style="transform: rotate(-90deg)">trending_flat</span><!-- #dev: 오름차순 -->
+                                                    <!-- <span class="material-icons" style="transform: rotate(90deg)">south</span> --><!-- #dev: 내림차순 -->
+                                                </a>
+                                            </th>
+                                            <th>상품<br>유형</th>
+                                            <th>정산<br>기준</th>
+                                            <th>상품<br>바코드</th>
+                                            <th>판매상품ID</th>
+                                            <th>판매상품명</th>
+                                            <th>정가(원)</th>
+                                            <th>수수료<br>매출(원)</th>
+                                            <th>승인<br>번호</th>
+                                            <th>교환<br>일시</th>
+                                            <th>지점<br>코드</th>
+                                            <th>지점명</th>
+                                            <th>포스<br>번호</th>
+                                            <th>주문/<br>취소</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td><a href="#" data-toggle="modal" data-target="#adjust-data-history">정산연월 변경</a></td>
+                                            <td>770325722664</td>
+                                            <td>2020-05-01<br>07:42</td>
+                                            <td>교환권</td>
+                                            <td>교환</td>
+                                            <td>8801155740993</td>
+                                            <td>0000005883</td>
+                                            <td>동원)주문하신카라멜마끼야또</td>
+                                            <td class="text-right">2000</td>
+                                            <td class="text-right">100</td>
+                                            <td>20200521210709120671</td>
+                                            <td>2020-05-21<br>10:00</td>
+                                            <td>16347</td>
+                                            <td>음성일죽대로점</td>
+                                            <td>01</td>
+                                            <td>주문</td>
+                                        </tr>
+                                        <tr class="except"><!-- #dev: 정산제외의 경우 except 클래스 입력하면 취소선 처리가 됩니다. -->
+                                            <td><input type="checkbox"></td>
+                                            <td><a href="#" data-toggle="modal" data-target="#adjust-data-history">정산제외</a></td>
+                                            <td>770325722664</td>
+                                            <td>2020-05-01<br>07:42</td>
+                                            <td>교환권</td>
+                                            <td>교환</td>
+                                            <td>8801155740993</td>
+                                            <td>0000005883</td>
+                                            <td>동원)주문하신카라멜마끼야또</td>
+                                            <td class="text-right">2000</td>
+                                            <td class="text-right">100</td>
+                                            <td>20200521210709120671</td>
+                                            <td>2020-05-21<br>10:00</td>
+                                            <td>16347</td>
+                                            <td>음성일죽대로점</td>
+                                            <td>01</td>
+                                            <td>주문</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td><a href="#" data-toggle="modal" data-target="#adjust-data-history">정산연월 변경</a></td>
+                                            <td>770325722664</td>
+                                            <td>2020-05-01<br>07:42</td>
+                                            <td>교환권</td>
+                                            <td>교환</td>
+                                            <td>8801155740993</td>
+                                            <td>0000005883</td>
+                                            <td>동원)주문하신카라멜마끼야또</td>
+                                            <td class="text-right">2000</td>
+                                            <td class="text-right">100</td>
+                                            <td>20200521210709120671</td>
+                                            <td>2020-05-21<br>10:00</td>
+                                            <td>16347</td>
+                                            <td>음성일죽대로점</td>
+                                            <td>01</td>
+                                            <td>주문</td>
+                                        </tr>
+                                        <tr class="except"><!-- #dev: 정산제외의 경우 except 클래스 입력하면 취소선 처리가 됩니다. -->
+                                            <td><input type="checkbox"></td>
+                                            <td><a href="#" data-toggle="modal" data-target="#adjust-data-history">정산제외</a></td>
+                                            <td>770325722664</td>
+                                            <td>2020-05-01<br>07:42</td>
+                                            <td>교환권</td>
+                                            <td>교환</td>
+                                            <td>8801155740993</td>
+                                            <td>0000005883</td>
+                                            <td>동원)주문하신카라멜마끼야또</td>
+                                            <td class="text-right">2000</td>
+                                            <td class="text-right">100</td>
+                                            <td>20200521210709120671</td>
+                                            <td>2020-05-21<br>10:00</td>
+                                            <td>16347</td>
+                                            <td>음성일죽대로점</td>
+                                            <td>01</td>
+                                            <td>주문</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="row" style="width: 1400px;">
+                                    <div class="col">
+                                        <button class="btn btn-sm btn-secondary">선택 삭제</button>
+                                    </div>
+                                    <div class="col">
+                                        <nav>
+                                            <ul class="pagination pagination-sm justify-content-center">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">fast_rewind</span></a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">skip_previous</span></a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">skip_next</span></a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">fast_forward</span></a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+                                
+                            </div>
+
+                            <!-- 로딩 모달 -->
+                            <!--
+                                모달 보이기: $('#loading').modal('show')
+                                모달 숨기기: $('#loading').modal('hide')
+                            -->
+                            <div class="modal" tabindex="-1" role="dialog" id="loading" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog my-0" role="document" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+                                    <div class="modal-content border-0 bg-transparent">
+                                        <div class="modal-body text-center text-white">
+                                            <div class="spinner-border" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 로딩 모달 -->
+
+                            <!-- 정산연월 변경 팝업(자사만) -->
+                            <div class="modal calculation-modal" tabindex="-1" role="dialog" id="change-date-only-company" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 800px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">정산연월 변경</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div><b>정산연월 변경</b></div>
+                                                <div class="d-flex ml-2">
+                                                    <label class="mb-0 ml-3 d-flex align-items-center">
+                                                        <input type="radio" name="change-type-for-company" value="all">
+                                                        <span class="ml-1">일괄수정</span>
+                                                    </label>
+                                                    <label class="mb-0 ml-3 d-flex align-items-center">
+                                                        <input type="radio" name="change-type-for-company" value="one" checked>
+                                                        <span class="ml-1">개별수정</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table border-bottom table-hover table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>쿠폰번호</th>
+                                                            <th>교환일시</th>
+                                                            <th>발행일시</th>
+                                                            <th>판매상품명</th>
+                                                            <th>정산연월</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>990842957777</td>
+                                                            <td>2019-06-03<br>15:15</td>
+                                                            <td>2019-02-27<br>10:00</td>
+                                                            <td>롯데)가나초콜릿마일드1000</td>
+                                                            <td>
+                                                                <input type="month" class="form-control form-control-sm mx-auto" value="2020-09" style="width: 120px;">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>990842957777</td>
+                                                            <td>2019-06-03<br>15:15</td>
+                                                            <td>2019-02-27<br>10:00</td>
+                                                            <td>롯데)가나초콜릿마일드1000</td>
+                                                            <td>
+                                                                <input type="month" class="form-control form-control-sm mx-auto" value="2020-09" style="width: 120px;">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 정산연월 변경 팝업(자사만) -->
+
+                            <!-- 정산연월 변경 팝업(제휴사만) -->
+                            <div class="modal calculation-modal" tabindex="-1" role="dialog" id="change-date-only-partner" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 1400px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">정산연월 변경</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div><b>정산연월 변경</b></div>
+                                                <div class="d-flex ml-2">
+                                                    <label class="mb-0 ml-3 d-flex align-items-center">
+                                                        <input type="radio" name="change-type-for-partner" value="all">
+                                                        <span class="ml-1">일괄수정</span>
+                                                    </label>
+                                                    <label class="mb-0 ml-3 d-flex align-items-center">
+                                                        <input type="radio" name="change-type-for-partner" value="one" checked>
+                                                        <span class="ml-1">개별수정</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table border-bottom table-hover table-bordered">
+                                                    <colgroup>
+                                                        <col>
+                                                        <col>
+                                                        <col style="width: 85px;">
+                                                        <col style="width: 85px;">
+                                                        <col>
+
+                                                        <col>
+                                                        <col>
+                                                        <col style="width: 85px;">
+                                                        <col style="width: 85px;">
+                                                        <col>
+
+                                                        <col>
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="5">제휴사</th>
+                                                            <th colspan="5">자사</th>
+                                                            <th rowspan="2">정산연월</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>쿠폰번호</th>
+                                                            <th>승인번호</th>
+                                                            <th>교환일시</th>
+                                                            <th>발행일시</th>
+                                                            <th>판매상품명</th>
+                                                            <th>쿠폰번호</th>
+                                                            <th>승인번호</th>
+                                                            <th>교환일시</th>
+                                                            <th>발행일시</th>
+                                                            <th>판매상품명</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>990842957777</td>
+                                                            <td>20200521210709120671</td>
+                                                            <td>2019-06-03<br>15:15</td>
+                                                            <td>2019-02-27<br>10:00</td>
+                                                            <td>롯데)가나초콜릿마일드1000</td>
+                                                            <td>990842957777</td>
+                                                            <td>20200521210709120671</td>
+                                                            <td>2019-06-03<br>15:15</td>
+                                                            <td>2019-02-27<br>10:00</td>
+                                                            <td>롯데)가나초콜릿마일드1000</td>
+                                                            <td>
+                                                                <input type="month" class="form-control form-control-sm mx-auto" value="2020-09" style="width: 120px;">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>990842957777</td>
+                                                            <td>20200521210709120671</td>
+                                                            <td>2019-06-03<br>15:15</td>
+                                                            <td>2019-02-27<br>10:00</td>
+                                                            <td>롯데)가나초콜릿마일드1000</td>
+                                                            <td>990842957777</td>
+                                                            <td>20200521210709120671</td>
+                                                            <td>2019-06-03<br>15:15</td>
+                                                            <td>2019-02-27<br>10:00</td>
+                                                            <td>롯데)가나초콜릿마일드1000</td>
+                                                            <td>
+                                                                <input type="month" class="form-control form-control-sm mx-auto" value="2020-09" style="width: 120px;">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 정산연월 변경 팝업(자사만) -->
+
+                            <!-- 가격 변경 팝업 -->
+                            <div class="modal calculation-modal" tabindex="-1" role="dialog" id="change-price" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 800px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">가격 변경</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="table-responsive">
+                                                <table class="table border-bottom table-hover table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>판매상품ID</th>
+                                                            <th>판매상품명</th>
+                                                            <th>정가(원)</th>
+                                                            <th>교환제휴사 부담금(원)</th>
+                                                            <th>공급제휴사 부담금(원)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>PD00000004600</td>
+                                                            <td>롯데)가나초콜릿마일드1000</td>
+                                                            <td><input type="number" class="form-control form-control-sm mx-auto text-right" value="30000" style="width: 100px;"></td>
+                                                            <td><input type="number" class="form-control form-control-sm mx-auto text-right" value="1500" style="width: 100px;"></td>
+                                                            <td><input type="number" class="form-control form-control-sm mx-auto text-right" value="1500" style="width: 100px;"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>0000005883</td>
+                                                            <td>동원)주문하신카라멜마끼야또</td>
+                                                            <td><input type="number" class="form-control form-control-sm mx-auto text-right" value="30000" style="width: 100px;"></td>
+                                                            <td><input type="number" class="form-control form-control-sm mx-auto text-right" value="1500" style="width: 100px;"></td>
+                                                            <td><input type="number" class="form-control form-control-sm mx-auto text-right" value="1500" style="width: 100px;"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 가격 변경 팝업 -->
+
+                            <!-- 데이터 조정 내역 팝업 -->
+                            <div class="modal calculation-modal" tabindex="-1" role="dialog" id="adjust-data-history" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 1200px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">데이터 조정 내역</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-2 d-flex align-items-center justify-content-between">
+                                                <div>
+                                                    <b>[EC0494] 빽다방 APP(교환권) 데이터 조정 내역 <span class="badge badge-warning">00</span> 건</b>
+                                                </div>
+                                                <div>
+                                                    <b>2020-04</b>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table border-bottom table-hover table-bordered">
+                                                    <colgroup>
+                                                        <col>
+                                                        <col>
+                                                        <col>
+                                                        <col>
+                                                        <col style="width: 80px;">
+                                                        <col>
+                                                        <col>
+                                                        <col>
+                                                        <col style="width: 80px;">
+                                                        <col>
+                                                        <col style="width: 80px;">
+                                                        <col>
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>차이종류</th>
+                                                            <th>데이터 조정</th>
+                                                            <th>조정 내용</th>
+                                                            <th>조정자</th>
+                                                            <th>조정일시</th>
+                                                            <th>쿠폰번호</th>
+                                                            <th>정가(원)</th>
+                                                            <th>수수료매출(원)</th>
+                                                            <th>발행일시</th>
+                                                            <th>승인번호</th>
+                                                            <th>교환일시</th>
+                                                            <th>조정취소</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>자사만</td>
+                                                            <td>정산연월 변경</td>
+                                                            <td>2020-05 → 2020-06</td>
+                                                            <td>홍길동<br>(gdhong)</td>
+                                                            <td>2020-06-07<br>10:00</td>
+                                                            <td>770325722664</td>
+                                                            <td>2,000</td>
+                                                            <td>100</td>
+                                                            <td>2020-05-01<br>07:42</td>
+                                                            <td>20200521210709120671</td>
+                                                            <td>2020-05-21<br>10:00</td>
+                                                            <td><button class="btn btn-sm btn-secondary p-1"><span class="material-icons" style="font-size: 1rem;">close</span></button></td>
+                                                        </tr>
+                                                        <tr class="except"><!-- #dev: 정산 제외 일 경우 except 클래스 -->
+                                                            <td>자사만</td>
+                                                            <td>정산연월 변경</td>
+                                                            <td>2020-05 → 2020-06</td>
+                                                            <td>홍길동<br>(gdhong)</td>
+                                                            <td>2020-06-07<br>10:00</td>
+                                                            <td>770325722664</td>
+                                                            <td>2,000</td>
+                                                            <td>100</td>
+                                                            <td>2020-05-01<br>07:42</td>
+                                                            <td>20200521210709120671</td>
+                                                            <td>2020-05-21<br>10:00</td>
+                                                            <td><button class="btn btn-sm btn-secondary p-1"><span class="material-icons" style="font-size: 1rem;">close</span></button></td>
+                                                        </tr>
+                                                        <tr class="selected"><!-- #dev: 앞 단계에서 선택한 데이터를 표시할 때 selected 클래스 -->
+                                                            <td>자사만</td>
+                                                            <td>정산연월 변경</td>
+                                                            <td>2020-05 → 2020-06</td>
+                                                            <td>홍길동<br>(gdhong)</td>
+                                                            <td>2020-06-07<br>10:00</td>
+                                                            <td>770325722664</td>
+                                                            <td>2,000</td>
+                                                            <td>100</td>
+                                                            <td>2020-05-01<br>07:42</td>
+                                                            <td>20200521210709120671</td>
+                                                            <td>2020-05-21<br>10:00</td>
+                                                            <td><button class="btn btn-sm btn-secondary p-1"><span class="material-icons" style="font-size: 1rem;">close</span></button></td>
+                                                        </tr>
+                                                        <tr class="except"><!-- #dev: 정산 제외 일 경우 except 클래스 -->
+                                                            <td>자사만</td>
+                                                            <td>정산연월 변경</td>
+                                                            <td>2020-05 → 2020-06</td>
+                                                            <td>홍길동<br>(gdhong)</td>
+                                                            <td>2020-06-07<br>10:00</td>
+                                                            <td>770325722664</td>
+                                                            <td>2,000</td>
+                                                            <td>100</td>
+                                                            <td>2020-05-01<br>07:42</td>
+                                                            <td>20200521210709120671</td>
+                                                            <td>2020-05-21<br>10:00</td>
+                                                            <td><button class="btn btn-sm btn-secondary p-1"><span class="material-icons" style="font-size: 1rem;">close</span></button></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 데이터 조정 내역 팝업 -->
+
+                            <script>
+                                (function($) {
+                                    // 체큼박스 선택 시, 전체 선택/해제
+                                    $(document).on('click', '.adjust-data-list.table .select-all', function() {
+                                        $('.adjust-data-list.table tbody td:first-child input[type="checkbox"]').prop('checked', $(this).prop('checked'))
+                                    })
+                                    // 정산연월 변경(자사만) 팜업: 일괄수정/개별수정 라디오 버튼 클릭 시
+                                    $(document).on('click', '#change-date-only-company input[name="change-type-for-company"]', function() {
+                                        console.log($(this).val())
+                                        if ($(this).val() == 'all') {
+                                            $('#change-date-only-company .modal-body .table input[type="month"]').prop('disabled', true)
+                                            $('#change-date-only-company .modal-body .table input[type="month"]:gt(0)').val('')
+                                            $('#change-date-only-company .modal-body .table input[type="month"]:eq(0)').prop('disabled', false)
+                                        } else if ($(this).val() == 'one') {
+                                            $('#change-date-only-company .modal-body .table input[type="month"]').prop('disabled', false)
+                                        }
+                                    })
+                                    // 정산연월 변경(제휴만) 팜업: 일괄수정/개별수정 라디오 버튼 클릭 시
+                                    $(document).on('click', '#change-date-only-partner input[name="change-type-for-partner"]', function() {
+                                        console.log($(this).val())
+                                        if ($(this).val() == 'all') {
+                                            $('#change-date-only-partner .modal-body .table input[type="month"]').prop('disabled', true)
+                                            $('#change-date-only-partner .modal-body .table input[type="month"]:gt(0)').val('')
+                                            $('#change-date-only-partner .modal-body .table input[type="month"]:eq(0)').prop('disabled', false)
+                                        } else if ($(this).val() == 'one') {
+                                            $('#change-date-only-partner .modal-body .table input[type="month"]').prop('disabled', false)
+                                        }
+                                    })
+                                })(jQuery);
+                            </script>
+
+                            <!-- contents 영역 끝-->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -37,6 +37,17 @@
         .material-icons {
             font-size: 1.2rem;
         }
+        tr.except {
+            td {
+                text-decoration: line-through;
+                &:nth-of-type(1) {
+                    text-decoration: none;
+                }
+                &:nth-of-type(2) {
+                    text-decoration: none;
+                }
+            }
+        }
     }
     ::placeholder {
         color: #ccc;
@@ -45,15 +56,74 @@
     .btn-sm {
         font-size: 11px;
     }
+    .page-link {
+        color: var(--secondary) !important;
+        padding-left: .1rem;
+        padding-right: .1rem;
+        height: 100%;
+        min-width: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
 
     // 차이데이터 영역
     .diff-data {
         .autocomplete {
-            .datainput + .datareset {
+            // .datainput + .datareset {
+            //     display: none;
+            // }
+            // .datainput:invalid {
+            //     border-color: skyblue;
+            // }
+            // .datainput:read-only {
+            //     border-width: 2px;
+            // }
+            // 
+            // .datainput:read-only + .datareset {
+            //     display: block;
+            // }
+            .datareset {
                 display: none;
             }
-            .datainput:read-only + .datareset {
-                display: block;
+            &.has-reset-btn {
+                .datareset {
+                    display: block;
+                }
+            }
+        }
+        .form-control:not(.diff-type):not(.coupon-no):not(.approved-no) {
+            width: 200px;
+        }
+    }
+
+    .adjust-data {
+        th, td {
+            text-align: left;
+        }
+        .change-price,
+        .change-month {
+            display: none;
+        }
+    }
+
+    .calculation-table {
+        tbody {
+            tr:hover {
+                .title,
+                .status {
+                    background-color: white;
+                }
             }
         }
     }
@@ -95,6 +165,10 @@
             text-align: center;
             vertical-align: middle;
         }
+        td {
+            word-break: break-word!important;
+            overflow-wrap: break-word!important;
+        }
         .no-data {
             height: 50px;
         }
@@ -108,5 +182,37 @@
     }
     a:not(.btn) {
         text-decoration: underline;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+}
+
+#adjust-data-history.modal {
+    .table {
+        .selected {
+            td {
+                background-color: rgba(0, 0, 0, .075)
+            }
+        }
+        .except {
+            td {
+                text-decoration: line-through;
+            }
+            td:nth-of-type(1),
+            td:nth-of-type(2),
+            td:nth-of-type(3),
+            td:nth-of-type(4),
+            td:nth-of-type(5) {
+                text-decoration: none;
+            }
+        }
     }
 }

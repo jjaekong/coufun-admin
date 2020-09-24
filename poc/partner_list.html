@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>쿠펀 관리자페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
+    <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- v2 -->
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/commAjax.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/lib/handlebars-v4.0.12.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/helper.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- 환불처리 CSS -->
+    <link rel="stylesheet" href="/css/calculation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#04466c">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <!-- top 영역 시작 -->
+                <table style="width:100%; height:100; border:0; cellspacing:0; cellpadding:0;">
+                    <tr>
+                        <td width="200" rowspan="3" align="center">
+                        </td>
+                        <td align="right">
+                            <div id="top">
+                                <h1></h1>
+                                <h4>김재홍님 반갑습니다.</h4>
+                                <h2><a href="/v2/user/infoUpdate.om" title="정보수정"></a></h2>
+                                <h3>
+                                    <a href="/v2/login/logout.om" title="로그아웃"></a>
+                                </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <table style="width:700; border:0; cellspacing:0; cellpadding:0;">
+                                <tr>
+                                    <td align="center">
+                                        <div id="nav">
+                                            <ul>
+                                                <li><a href="/v2/user/list.om?uppermenuId=1" class="menu">계정관리</a></li>
+                                                <li><a href="/goods/list.coufun?uppermenuId=2" class="menu">상품관리</a></li>
+                                                <li><a href="/poc/list.coufun?uppermenuId=3" class="menu">제휴사및POC관리</a></li>
+                                                <li><a href="/systemconfig/list.coufun?uppermenuId=9" class="menu">환경설정</a></li>
+                                                <li><a href="/statistics/poc_list.coufun?uppermenuId=32" class="menu">통계관리</a></li>
+                                                <li><a href="/calculation/calculation_define_list.coufun?uppermenuId=37" class="menu">대사</a></li>
+                                                <li><a href="/btob_agency/list.coufun?uppermenuId=42" class="menu">B2B 회원관리</a></li>
+                                                <li><a href="/btob_send/list.coufun?uppermenuId=45" class="menu">B2B 발송관리</a></li>
+                                                <li><a href="/btob_event/list.coufun?uppermenuId=49" class="menu">B2B 이벤트관리</a></li>
+                                                <li><a href="/cs_new/list.coufun?uppermenuId=61" class="menu">C/S관리</a></li>
+                                                <li><a href="/selling_calculation/selectCalClientMonth.coufun?uppermenuId=67" class="menu">정산</a></li>
+                                                <li><a href="/oper_function/rcompany_coupon_rb_list.coufun?uppermenuId=108" class="menu">운영기능</a></li>
+                                                <li><a href="/company/companyList.coufun?uppermenuId=175" class="menu">거래처관리</a></li>
+                                                <li><a href="/sales/companySalesList.coufun?uppermenuId=177" class="menu">매출</a></li>
+                                                <li><a href="/couponmall/category.coufun?uppermenuId=182" class="menu">쿠폰몰</a></li>
+                                                <li><a href="/admin_system/calbatchlist.coufun?uppermenuId=187" class="menu">시스템</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- top 영역 끝-->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="205" valign="top">
+                            <!-- left 영역 시작 -->
+                            <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top">
+                                        <table width="200" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <div id="left">
+                                                        <h1>정산 관리</h1>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/calculation/calculation_list.html">정산데이터</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/calculation/confirm_purchase.html">구매확정</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/poc/partner_list.html">정산단위 관리</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- left 영역 끝-->
+                        </td>
+                        <td align="left" valign="top">
+                            <!-- contents 영역 시작 -->
+
+                            <div class="calculation">
+
+                                <h4 class="page-title mt-2">정산단위 관리</h4>
+                            
+                                <!-- 검색폼 영역 -->
+                                <table class="table">
+                                    <colgroup>
+                                        <col style='width: 150px'>
+                                        <col style="width: 355px">
+                                        <col style='width: 150px'>
+                                        <col style="width: 355px">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>정산단위명</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm">
+                                            </td>
+                                            <th>교환제휴사</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm" list="exchanger-list">
+                                                <datalist id="exchanger-list">
+                                                    <option value="[EC0010] 7-11">[EC0010] 7-11</option>
+                                                    <option value="[EC0500] GS25(카톡)">[EC0500] GS25(카톡)</option>
+                                                    <option value="[EC0110] GS25모바일 상품권">[EC0110] GS25모바일 상품권</option>
+                                                </datalist>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="4">
+                                                <button type="submit" class="btn btn-sm btn-secondary">조회</button>
+                                                <button type="reset" class="btn btn-sm btn-secondary ml-2">초기화</button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <!-- // 검색폼 영역 -->
+
+                                <div class="row align-items-center mb-2">
+                                    <div class="col col-auto">
+                                    </div>
+                                    <div class="col text-right">
+                                        <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#register-partner">등록</button>
+                                    </div>
+                                </div>
+
+                                <table class="table table-bordered partner-list table-hover">
+                                    <colgroup>
+                                        <col style="width: 40px;">
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" class="select-all"></th>
+                                            <th>정산단위명</th>
+                                            <th>정렬순서</th>
+                                            <th>등록일</th>
+                                            <th>등록자</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td class="text-left"><a href="#" data-toggle="modal" data-target="#modify-partner">더본코리아(빽다방)</a></td>
+                                            <td>1</td>
+                                            <td>2020-06-03</td>
+                                            <td>홍길동(gdhong)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td class="text-left"><a href="#" data-toggle="modal" data-target="#modify-partner">즐거운</a></td>
+                                            <td>2</td>
+                                            <td>2020-06-03</td>
+                                            <td>홍길동(gdhong)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td class="text-left"><a href="#" data-toggle="modal" data-target="#modify-partner">쿠프마케팅</a></td>
+                                            <td>3</td>
+                                            <td>2020-06-03</td>
+                                            <td>홍길동(gdhong)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btn btn-sm btn-secondary">선택 삭제</button>
+                                    </div>
+                                    <div class="col">
+                                        <nav>
+                                            <ul class="pagination pagination-sm justify-content-center">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">fast_rewind</span></a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">skip_previous</span></a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">8</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">9</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">skip_next</span></a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">fast_forward</span></a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+
+                            </div>
+
+                            <!-- 로딩 모달 -->
+                            <!--
+                                모달 보이기: $('#loading').modal('show')
+                                모달 숨기기: $('#loading').modal('hide')
+                            -->
+                            <div class="modal" tabindex="-1" role="dialog" id="loading" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog my-0" role="document" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+                                    <div class="modal-content border-0 bg-transparent">
+                                        <div class="modal-body text-center text-white">
+                                            <div class="spinner-border" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 로딩 모달 -->
+
+                            <!-- 정산단위 등록 모달 -->
+                            <div id="register-partner" class="modal calculation-modal" tabindex="-1" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 400px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">정산단위 등록</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>정산단위</th>
+                                                        <td><input type="text" class="form-control form-control-sm"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>정렬순위</th>
+                                                        <td><input type="number" class="form-control form-control-sm"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 정산단위 등록 모달 -->
+
+                            <!-- 정산단위 등록 모달 -->
+                            <div id="modify-partner" class="modal calculation-modal" tabindex="-1" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 400px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">정산단위 수정</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>정산단위</th>
+                                                        <td><input type="text" class="form-control form-control-sm" value="빽다방"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>정렬순위</th>
+                                                        <td><input type="number" class="form-control form-control-sm" value="1"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                            <h6 class="mt-4 font-weight-bold" style="font-size: .8rem;">할당된 교환제휴사</h6>
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>교환제휴사ID</th>
+                                                        <th>교환제휴사명</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>EC0280</td>
+                                                        <td>빽다방APP(금액권)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>EC0279</td>
+                                                        <td>빽다방APP(교환권)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>EC0249</td>
+                                                        <td>빽다방 금액상품권(통합)</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 정산단위 등록 모달 -->
+
+                            <script>
+                                (function($) {
+                                    // 체큼박스 선택 시, 전체 선택/해제
+                                    $(document).on('click', '.partner-list.table .select-all', function() {
+                                        $('.partner-list.table tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'))
+                                    })
+                                })(jQuery)
+                            </script>
+
+                            <!-- contents 영역 끝-->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
