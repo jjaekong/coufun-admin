@@ -1,0 +1,104 @@
+.adjust-theborn {
+  width: 1010px;
+  font-size: 12px;
+}
+.adjust-theborn .page-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.adjust-theborn .nav-link {
+  font-weight: bold;
+  color: var(--secondary);
+}
+.adjust-theborn .nav-link.active {
+  color: #000;
+}
+.adjust-theborn .form-control-sm,
+.adjust-theborn .btn-sm {
+  font-size: 11px;
+}
+.adjust-theborn .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.adjust-theborn .table th, .adjust-theborn .table td {
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.adjust-theborn .table tbody th, .adjust-theborn .table tbody td {
+  height: 37px;
+}
+.adjust-theborn .table .no-data {
+  height: 50px;
+}
+.adjust-theborn .table .total th, .adjust-theborn .table .total td {
+  background: var(--light);
+}
+.adjust-theborn .search {
+  height: 26px;
+}
+.adjust-theborn .search .form-control {
+  width: 120px;
+}
+.adjust-theborn ::placeholder {
+  color: #ccc;
+}
+.adjust-theborn .pagination {
+  justify-content: center;
+  align-items: stretch;
+}
+.adjust-theborn .pagination a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+}
+
+.theborn-modal {
+  font-size: 12px;
+}
+.theborn-modal .modal-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0;
+  background: var(--light);
+}
+.theborn-modal .modal-header .modal-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+.theborn-modal .modal-header .close {
+  font-size: 14px;
+}
+.theborn-modal .table-responsive {
+  max-height: 400px;
+}
+.theborn-modal .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.theborn-modal .table th, .theborn-modal .table td {
+  height: 30px;
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.theborn-modal .table .no-data {
+  height: 50px;
+}
+.theborn-modal .form-control,
+.theborn-modal .btn {
+  font-size: 11px !important;
+}
+.theborn-modal .no-data {
+  height: 50px;
+}
+.theborn-modal a:not(.btn) {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=oper_function.css.map */
