@@ -478,6 +478,13 @@
                                         $(this).parents('tr').eq(0).find('.branch-list').eq(0).prop('disabled', this.selectedIndex == 0 ? true : false)
                                     })
 
+                                    // 등록 모달에서 파일 선택 시, 파일명 출력하기
+                                    $(document).on('change', '#excel-file', function() {
+                                        $(this).next('.custom-file-label').text(
+                                            $(this)[0].files.length > 0 ? $(this)[0].files[0].name : '파일 선택'
+                                        );
+                                    })
+
                                 })(jQuery)
                             </script>
 
