@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>쿠펀 관리자페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
+    <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- v2 -->
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/commAjax.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/lib/handlebars-v4.0.12.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/helper.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- New CSS -->
+    <link rel="stylesheet" href="/css/style_2020.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <style>
+        .table th, .table td { height: 2rem !important; }
+    </style>
+
+</head>
+
+<body>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#04466c">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <!-- top 영역 시작 -->
+                <table style="width:100%; height:100; border:0; cellspacing:0; cellpadding:0;">
+                    <tr>
+                        <td width="200" rowspan="3" align="center">
+                        </td>
+                        <td align="right">
+                            <div id="top">
+                                <h1></h1>
+                                <h4>김재홍님 반갑습니다.</h4>
+                                <h2><a href="/v2/user/infoUpdate.om" title="정보수정"></a></h2>
+                                <h3>
+                                    <a href="/v2/login/logout.om" title="로그아웃"></a>
+                                </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <table style="width:700; border:0; cellspacing:0; cellpadding:0;">
+                                <tr>
+                                    <td align="center">
+                                        <div id="nav">
+                                            <ul>
+                                                <li><a href="/v2/user/list.om?uppermenuId=1" class="menu">계정관리</a></li>
+                                                <li><a href="/goods/list.coufun?uppermenuId=2" class="menu">상품관리</a></li>
+                                                <li><a href="/poc/list.coufun?uppermenuId=3" class="menu">제휴사및POC관리</a></li>
+                                                <li><a href="/systemconfig/list.coufun?uppermenuId=9" class="menu">환경설정</a></li>
+                                                <li><a href="/statistics/poc_list.coufun?uppermenuId=32" class="menu">통계관리</a></li>
+                                                <li><a href="/calculation/calculation_define_list.coufun?uppermenuId=37" class="menu">대사</a></li>
+                                                <li><a href="/btob_agency/list.coufun?uppermenuId=42" class="menu">B2B 회원관리</a></li>
+                                                <li><a href="/btob_send/list.coufun?uppermenuId=45" class="menu">B2B 발송관리</a></li>
+                                                <li><a href="/btob_event/list.coufun?uppermenuId=49" class="menu">B2B 이벤트관리</a></li>
+                                                <li><a href="/cs_new/list.coufun?uppermenuId=61" class="menu">C/S관리</a></li>
+                                                <li><a href="/selling_calculation/selectCalClientMonth.coufun?uppermenuId=67" class="menu">정산</a></li>
+                                                <li><a href="/oper_function/rcompany_coupon_rb_list.coufun?uppermenuId=108" class="menu">운영기능</a></li>
+                                                <li><a href="/company/companyList.coufun?uppermenuId=175" class="menu">거래처관리</a></li>
+                                                <li><a href="/sales/companySalesList.coufun?uppermenuId=177" class="menu">매출</a></li>
+                                                <li><a href="/couponmall/category.coufun?uppermenuId=182" class="menu">쿠폰몰</a></li>
+                                                <li><a href="/admin_system/calbatchlist.coufun?uppermenuId=187" class="menu">시스템</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- top 영역 끝-->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="205" valign="top">
+                            <!-- left 영역 시작 -->
+
+                            <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top">
+                                        <table width="200" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <div id="left">
+                                                        <h1>정산TF 퍼블리싱 목록</h1>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/chit/chit_list.html">전표목록_검색</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/chit/chit_change.html">전표_사업자변경</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/chit/request_detail_list.html">청구목록_검색</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/chit/request_register.html">청구(인보이스/<br>세금계산서/계산서)</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/chit/request_register_upfront.html">청구(선입금)</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/chit/request_complete.html">청구된 화면</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/chit/invoice_sample.html">영수증 샘플</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- left 영역 끝-->
+                        </td>
+                        <td align="left" valign="top">
+                            <!-- contents 영역 시작 -->
+
+                            <div class="content-2020 request-register">
+
+                                <h4 class="page-title mt-2">청구 등록</h4>
+
+                                <div class="d-flex flex-column align-items-center py-3" style="font-size: 1rem;">
+                                    <u class="mb-2">선입금 청구서</u>
+                                    <span>[INVOICE]</span>
+                                </div>
+
+                                <div class="mb-2">
+                                    작성일자: 2020년 09월 22일
+                                </div>
+                            
+                                <table class="table table-bordered">
+                                    <colgroup>
+                                        <col style="width: 10%;">
+                                        <col style="width: 15%;">
+                                        <col style="width: 10%;">
+                                        <col style="width: 15%;">
+                                        <col style="width: 10%;">
+                                        <col style="width: 15%;">
+                                        <col style="width: 10%;">
+                                        <col style="width: 15%;">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th colspan="4">공급받는 자</th>
+                                            <th colspan="4">공급자</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>등록번호</th>
+                                            <td colspan="3">
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <span>106-86-48271</span>
+                                                    <button class="btn btn-sm btn-secondary ml-2">거래처 선택</button>
+                                                </div>
+                                            </td>
+                                            <th>등록번호</th>
+                                            <td colspan="3">220-81-54389</td>
+                                        </tr>
+                                        <tr>
+                                            <th>상호</th>
+                                            <td>주식회사 제이비컴스</td>
+                                            <th>성명</th>
+                                            <td>권재범</td>
+
+                                            <th>상호</th>
+                                            <td>주식회사 티사이언티픽</td>
+                                            <th>성명</th>
+                                            <td>김상우</td>
+                                        </tr>
+                                        <tr>
+                                            <th>주소</th>
+                                            <td colspan="3">서울특별시 마포구 월드컵북로 59, 5,6층</td>
+
+                                            <th>주소</th>
+                                            <td colspan="3">서울특별시 동작구 여의대방로 62길 1 이투데이빌딩 3층</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="py-0">업태</th>
+                                            <td class="py-0">소매</td>
+                                            <th class="py-0">종목</th>
+                                            <td class="py-0">전자상거래</td>
+
+                                            <th class="py-0">업태</th>
+                                            <td class="py-0">통신업</td>
+                                            <th class="py-0">종목</th>
+                                            <td class="py-0">부가통신업</td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="4">품명</th>
+                                            <th>수량</th>
+                                            <th>단가</th>
+                                            <th colspan="2">금액</th>
+                                        </tr>
+                                    </tbody>
+                                    <tbody class="border-top-0">
+                                        <tr>
+                                            <td colspan="4" class="text-left">
+                                                <input type="text" class="form-control form-control-sm">
+                                            </td>
+                                            <td></td>
+                                            <td class="text-right"></td>
+                                            <td colspan="2" class="text-right">
+                                                <input type="text" class="form-control form-control-sm text-right">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="text-left"></td>
+                                            <td></td>
+                                            <td class="text-right"></td>
+                                            <td colspan="2" class="text-right"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="text-left"></td>
+                                            <td></td>
+                                            <td class="text-right"></td>
+                                            <td colspan="2" class="text-right"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">소계</td>
+                                            <td></td>
+                                            <td class="text-right"></td>
+                                            <td colspan="2" class="text-right">
+                                                1,619,520
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3">비고</td>
+                                            <td colspan="3" rowspan="3">
+                                                <textarea class="form-control form-control-sm h-100 w-100" placeholder="메모 입력"></textarea>
+                                            </td>
+                                            <td colspan="2">공급가</td>
+                                            <td colspan="2" class="text-right">600,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">부가세</td>
+                                            <td colspan="2" class="text-right"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">합계</td>
+                                            <td colspan="2" class="text-right">600,000</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+
+                                <div class="row mt-3 mb-5">
+                                    <div class="col">
+                                    </div>
+                                    <div class="col text-center">
+                                        <a class="btn btn-sm btn-secondary px-4" href="request_detail_list.html">취소</a>
+                                        <button class="btn btn-sm btn-primary px-4">청구 등록</button>
+                                        <a href="request_complete.html">청구 등록 완료 화면</a><!-- 이 링크는 UI 확인용입니다. 개발 시 삭제 바랍니다. -->
+                                    </div>
+                                    <div class="col text-right">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 로딩 모달 -->
+                            <!--
+                                모달 보이기: $('#loading').modal('show')
+                                모달 숨기기: $('#loading').modal('hide')
+                            -->
+                            <div class="modal" tabindex="-1" role="dialog" id="loading" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog my-0" role="document" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+                                    <div class="modal-content border-0 bg-transparent">
+                                        <div class="modal-body text-center text-white">
+                                            <div class="spinner-border" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- contents 영역 끝-->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+.content-2020 {
+  width: 1010px;
+  font-size: 12px;
+}
+.content-2020 .page-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.content-2020 .nav-link {
+  font-weight: bold;
+  color: var(--secondary);
+}
+.content-2020 .nav-link.active {
+  color: #000;
+}
+.content-2020 .form-control-sm,
+.content-2020 .btn-sm {
+  font-size: 11px;
+}
+.content-2020 .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.content-2020 .table th, .content-2020 .table td {
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.content-2020 .table tbody th, .content-2020 .table tbody td {
+  height: 37px;
+}
+.content-2020 .table .no-data {
+  height: 50px;
+}
+.content-2020 .table .total th, .content-2020 .table .total td {
+  background: var(--light);
+}
+.content-2020 .search {
+  height: 26px;
+}
+.content-2020 .search .form-control {
+  width: 120px;
+}
+.content-2020 ::placeholder {
+  color: #ccc;
+}
+.content-2020 .pagination {
+  justify-content: center;
+  align-items: stretch;
+}
+.content-2020 .pagination a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+}
+
+.modal-2020 {
+  font-size: 12px;
+}
+.modal-2020 .modal-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0;
+  background: var(--light);
+}
+.modal-2020 .modal-header .modal-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+.modal-2020 .modal-header .close {
+  font-size: 14px;
+}
+.modal-2020 .table-responsive {
+  max-height: 400px;
+}
+.modal-2020 .table th {
+  border-bottom: 0;
+  background: var(--light);
+}
+.modal-2020 .table th, .modal-2020 .table td {
+  height: 30px;
+  padding: 5px;
+  font-size: 11px;
+  text-align: center;
+  vertical-align: middle;
+}
+.modal-2020 .table .no-data {
+  height: 50px;
+}
+.modal-2020 .form-control,
+.modal-2020 .btn {
+  font-size: 11px !important;
+}
+.modal-2020 .no-data {
+  height: 50px;
+}
+.modal-2020 a:not(.btn) {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=style_2020.css.map */
