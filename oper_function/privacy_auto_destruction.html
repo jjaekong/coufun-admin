@@ -41,11 +41,6 @@
     <!-- 개인정보관련 CSS -->
     <link rel="stylesheet" href="/css/privacy_destruction.css">
 
-    <!-- 캘린더 JS & CSS -->
-    <script src="/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js" type="text/javascript"></script>
-    <script src="/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
-    <link href="/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-
 </head>
 
 <body>
@@ -189,22 +184,48 @@
                                     </colgroup>
                                     <tbody>
                                         <tr>
+                                            <th>발송일</th>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="date" class="form-control form-control-sm" style="width: 140px;">
+                                                    <span class="mx-2">~</span>
+                                                    <input type="date" class="form-control form-control-sm" style="width: 140px;">
+                                                </div>
+                                            </td>
+                                            <th>거래처</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm">
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <th>파기일</th>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <input type="text" class="form-control form-control-sm datepicker" readonly style="width: 120px;">
+                                                    <input type="date" class="form-control form-control-sm" style="width: 140px;">
                                                     <span class="mx-2">~</span>
-                                                    <input type="text" class="form-control form-control-sm datepicker" readonly style="width: 120px;">
+                                                    <input type="date" class="form-control form-control-sm" style="width: 140px;">
                                                 </div>
                                             </td>
-                                            <th>파기(예약)자</th>
+                                            <th>EVENT/POC</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>발송ID</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm">
+                                            </td>
+                                            <th>파기(예약자)</th>
                                             <td>
                                                 <input type="text" class="form-control form-control-sm">
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>파기사유</th>
-                                            <td><input type="text" class="form-control form-control-sm"></td>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm">
+                                            </td>
                                             <th>상태</th>
                                             <td>
                                                 <select class="form-control form-control-sm">
@@ -227,70 +248,128 @@
                                 <!-- 검색 영역 -->
 
                                 <!-- 리스트 -->
-                                <div class="mb-3 mt-4"><b>※ 총 00건의 결과가 있습니다.</b></div>
+                                <div class="d-flex align-items-center justify-content-between mb-2 mt-4">
+                                    <div>
+                                        <b>※ 총 00건의 결과가 있습니다.</b>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-sm btn-secondary rounded-circle" style="width: 1.5rem; height: 1.5rem;" data-toggle="tooltip" title="※ 조회된 리스트의 ‘거래처’가 모두 동일하고 ‘상태’가 모두 ‘완료’인 경우만 확인서 출력이 가능합니다.">?</button>
+                                        <button class="btn btn-sm btn-secondary btn-show-confirm">개인정보 파기 확인서</button>
+                                    </div>
+                                </div>
 
-                                <table class="table table-hover mt-2">
+                                <table class="table table-hover table-bordered mt-2">
                                     <colgroup>
-                                        <col style="width: 120px;">
-                                        <col style="width: 150px;">
-                                        <col style="width: 200px;">
-                                        <col style="width: 200px;">
+                                        <col style="width: 100px;">
                                         <col>
+                                        <col style="width: 100px;">
+                                        <col style="width: 100px;">
                                         <col style="width: 80px;">
-                                        <col style="width: 80px;">
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
                                     </colgroup>
                                     <thead>
                                         <tr style="height: 30px">
+                                            <th>발송일</th>
+                                            <th>거래처</th>
                                             <th>파기일</th>
+                                            <th>파기예약일</th>
+                                            <th>상태</th>
                                             <th>파기(예약)자</th>
                                             <th>파기 사유</th>
                                             <th>파기 업무</th>
+                                            <th>EVENT/POC</th>
                                             <th>발송ID</th>
                                             <th>건수</th>
-                                            <th>상태</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>2025-08-22</td>
+                                            <td>㈜코리아세븐</td>
+                                            <td>2025-08-22</td>
+                                            <td>2025-08-22</td>
+                                            <td>예약</td>
                                             <td>System</td>
                                             <td>유효기간 만료에 따른 자동파기</td>
                                             <td>B2B 연동발송 일반주문</td>
-                                            <td><a href="#"><u class="text-secondary" data-toggle="modal" data-target="#blacklist-modify-modal">568430</u></a></td>
+                                            <td>841</td>
+                                            <td><a href="#"><u>568427</u></a></td>
                                             <td>59</td>
-                                            <td>예약</td>
                                         </tr>
                                         <tr>
                                             <td>2025-08-22</td>
+                                            <td>㈜코리아세븐</td>
+                                            <td>2025-08-22</td>
+                                            <td>2025-08-22</td>
+                                            <td>예약</td>
                                             <td>System</td>
                                             <td>유효기간 만료에 따른 자동파기</td>
                                             <td>B2B 연동발송 일반주문</td>
-                                            <td><a href="#"><u class="text-secondary" data-toggle="modal" data-target="#blacklist-modify-modal">568430</u></a></td>
+                                            <td>841</td>
+                                            <td><a href="#"><u>568427</u></a></td>
                                             <td>59</td>
-                                            <td>예약</td>
                                         </tr>
                                         <tr>
                                             <td>2025-08-22</td>
+                                            <td>㈜코리아세븐</td>
+                                            <td>2025-08-22</td>
+                                            <td>2025-08-22</td>
+                                            <td>예약</td>
                                             <td>System</td>
                                             <td>유효기간 만료에 따른 자동파기</td>
                                             <td>B2B 연동발송 일반주문</td>
-                                            <td><a href="#"><u class="text-secondary" data-toggle="modal" data-target="#blacklist-modify-modal">568430</u></a></td>
+                                            <td>841</td>
+                                            <td><a href="#"><u>568427</u></a></td>
                                             <td>59</td>
-                                            <td>예약</td>
                                         </tr>
                                         <tr>
                                             <td>2025-08-22</td>
+                                            <td>㈜코리아세븐</td>
+                                            <td>2025-08-22</td>
+                                            <td>2025-08-22</td>
+                                            <td>예약</td>
                                             <td>System</td>
                                             <td>유효기간 만료에 따른 자동파기</td>
                                             <td>B2B 연동발송 일반주문</td>
-                                            <td><a href="#"><u class="text-secondary" data-toggle="modal" data-target="#blacklist-modify-modal">568430</u></a></td>
+                                            <td>841</td>
+                                            <td><a href="#"><u>568427</u></a></td>
                                             <td>59</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2025-08-22</td>
+                                            <td>㈜코리아세븐</td>
+                                            <td>2025-08-22</td>
+                                            <td>2025-08-22</td>
                                             <td>예약</td>
+                                            <td>System</td>
+                                            <td>유효기간 만료에 따른 자동파기</td>
+                                            <td>B2B 연동발송 일반주문</td>
+                                            <td>841</td>
+                                            <td><a href="#"><u>568427</u></a></td>
+                                            <td>59</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2025-08-22</td>
+                                            <td>㈜코리아세븐</td>
+                                            <td>2025-08-22</td>
+                                            <td>2025-08-22</td>
+                                            <td>예약</td>
+                                            <td>System</td>
+                                            <td>유효기간 만료에 따른 자동파기</td>
+                                            <td>B2B 연동발송 일반주문</td>
+                                            <td>841</td>
+                                            <td><a href="#"><u>568427</u></a></td>
+                                            <td>59</td>
                                         </tr>
                                     </tbody>
                                     <tbody>
                                         <tr>
-                                            <td class="no-data" colspan="7">검색 결과가 없습니다.</td>
+                                            <td class="no-data" colspan="11">검색 결과가 없습니다.</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -326,9 +405,12 @@
 
                             <script>
                                 (function($) {
-                                    $(".datepicker").datepicker({
-                                        language: "ko"
-                                    });
+
+                                    $('[data-toggle="tooltip"]').tooltip()
+
+                                    $(document).on('click', '.btn-show-confirm', function() {
+                                        window.open('privacy_destruction_confirm.html', 'privacy_destruction_confirm', 'width=800, height=900')
+                                    })
                                     
                                 })(jQuery);
                             </script>
