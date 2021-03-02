@@ -1,0 +1,528 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>쿠펀 관리자페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
+    <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- v2 -->
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/commAjax.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/lib/handlebars-v4.0.12.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/helper.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/css/style_2020.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#04466c">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <!-- top 영역 시작 -->
+                <table style="width:100%; height:100; border:0; cellspacing:0; cellpadding:0;">
+                    <tr>
+                        <td width="200" rowspan="3" align="center">
+                        </td>
+                        <td align="right">
+                            <div id="top">
+                                <h1></h1>
+                                <h4>김재홍님 반갑습니다.</h4>
+                                <h2><a href="/v2/user/infoUpdate.om" title="정보수정"></a></h2>
+                                <h3>
+                                    <a href="/v2/login/logout.om" title="로그아웃"></a>
+                                </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <table style="width:700; border:0; cellspacing:0; cellpadding:0;">
+                                <tr>
+                                    <td align="center">
+                                        <div id="nav">
+                                            <ul>
+                                                <li><a href="/v2/user/list.om?uppermenuId=1" class="menu">계정관리</a></li>
+                                                <li><a href="/goods/list.coufun?uppermenuId=2" class="menu">상품관리</a></li>
+                                                <li><a href="/poc/list.coufun?uppermenuId=3" class="menu">제휴사및POC관리</a></li>
+                                                <li><a href="/systemconfig/list.coufun?uppermenuId=9" class="menu">환경설정</a></li>
+                                                <li><a href="/statistics/poc_list.coufun?uppermenuId=32" class="menu">통계관리</a></li>
+                                                <li><a href="/calculation/calculation_define_list.coufun?uppermenuId=37" class="menu">대사</a></li>
+                                                <li><a href="/btob_agency/list.coufun?uppermenuId=42" class="menu">B2B 회원관리</a></li>
+                                                <li><a href="/btob_send/list.coufun?uppermenuId=45" class="menu">B2B 발송관리</a></li>
+                                                <li><a href="/btob_event/list.coufun?uppermenuId=49" class="menu">B2B 이벤트관리</a></li>
+                                                <li><a href="/cs_new/list.coufun?uppermenuId=61" class="menu">C/S관리</a></li>
+                                                <li><a href="/selling_calculation/selectCalClientMonth.coufun?uppermenuId=67" class="menu">정산</a></li>
+                                                <li><a href="/oper_function/rcompany_coupon_rb_list.coufun?uppermenuId=108" class="menu">운영기능</a></li>
+                                                <li><a href="/company/companyList.coufun?uppermenuId=175" class="menu">거래처관리</a></li>
+                                                <li><a href="/sales/companySalesList.coufun?uppermenuId=177" class="menu">매출</a></li>
+                                                <li><a href="/couponmall/category.coufun?uppermenuId=182" class="menu">쿠폰몰</a></li>
+                                                <li><a href="/admin_system/calbatchlist.coufun?uppermenuId=187" class="menu">시스템</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- top 영역 끝-->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="205" valign="top">
+                            <!-- left 영역 시작 -->
+                            <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top">
+                                        <table width="200" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <div id="left">
+                                                        <h1>C/S(기간연장)</h1>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/cs_new/online_cs.html">C/S(기간연장)</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- left 영역 끝-->
+                        </td>
+                        <td align="left" valign="top">
+
+                            <!-- contents 영역 시작 -->
+
+                            <div class="cs online content-2020">
+
+                                <h4 class="page-title mt-2">C/S(기간연장)</h4>
+                            
+                                <!-- 검색폼 영역 -->
+                                <table class="table mb-4 border-bottom">
+                                    <colgroup>
+                                        <col style='width: 150px'>
+                                        <col style="width: 355px">
+                                        <col style='width: 150px'>
+                                        <col style="width: 355px">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>등록일</th>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="date" class="form-control form-control-sm" style="width: 150px;">
+                                                    <span class="mx-1">~</span>
+                                                    <input type="date" class="form-control form-control-sm" style="width: 150px;">
+                                                </div>
+                                            </td>
+                                            <th>쿠폰번호</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>교환제휴사명</th>
+                                            <td><input type="text" class="form-control form-control-sm"></td>
+                                            <th>POC명</th>
+                                            <td><input type="text" class="form-control form-control-sm"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>C/S 종류</th>
+                                            <td class="text-left">
+                                                <label class="mb-0 d-inline-flex align-items-center mr-2">
+                                                    <input type="checkbox" class="mr-2" checked="checked"> 유효기간 연장
+                                                </label>
+                                            </td>
+                                            <th>진행상태</th>
+                                            <td class="text-left">
+                                                <label class="mb-0 d-inline-flex align-items-center mr-2">
+                                                    <input type="checkbox" class="mr-2" checked="checked"> 대기 중
+                                                </label>
+                                                <label class="mb-0 d-inline-flex align-items-center mr-2">
+                                                    <input type="checkbox" class="mr-2" checked="checked"> 처리 중
+                                                </label>
+                                                <label class="mb-0 d-inline-flex align-items-center mr-2">
+                                                    <input type="checkbox" class="mr-2"> 완료
+                                                </label>
+                                                <label class="mb-0 d-inline-flex align-items-center mr-2">
+                                                    <input type="checkbox" class="mr-2"> 철회
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="4">
+                                                <button type="submit" class="btn btn-sm btn-secondary">조회</button>
+                                                <button type="reset" class="btn btn-sm btn-secondary ml-2">초기화</button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <!-- // 검색폼 영역 -->
+
+                                <div class="row align-items-center">
+                                    <div class="col col-auto">
+                                        ※ 총 <span class="badge badge-warning">00</span> 건의 결과가 있습니다.
+                                    </div>
+                                    <div class="col text-right">
+                                        <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#batch-edit">진행상태 수정</button>
+                                    </div>
+                                </div>
+
+                                <table class="table mt-2 border-bottom table-bordered table-hover online-cs-list" style="width: 1400px">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" class="select-all"></th>
+                                            <th>등록일</th>
+                                            <th>쿠폰번호</th>
+                                            <th>교환제휴사명</th>
+                                            <th>POC명</th>
+                                            <th>상품명</th>
+                                            <th>C/S종류</th>
+                                            <th>진행상태</th>
+                                            <th>담당자</th>
+                                            <th>처리완료일</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>2021-01-06</td>
+                                            <td>
+                                                <a href="#" class="text-secondary"><u>1234123412341324</u></a>
+                                            </td>
+                                            <td>CU편의점(쿠프)</td>
+                                            <td>11번가</td>
+                                            <td class="text-left">
+                                                <a href="#cs-detail" class="text-secondary" data-toggle="modal"><u>[CU]동아)포카리스웨트620ML_B2C_[옴니텔]_쿠프마케팅(연동)_11번가</u></a>
+                                            </td>
+                                            <td>유효기간 연장</td>
+                                            <td>대기 중</td>
+                                            <td>이순신(sslee)</td>
+                                            <td>2021-01-11</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>2021-01-06</td>
+                                            <td>
+                                                <a href="#" class="text-secondary"><u>1234123412341324</u></a>
+                                            </td>
+                                            <td>CU편의점(쿠프)</td>
+                                            <td>11번가</td>
+                                            <td class="text-left">
+                                                <a href="#cs-detail" class="text-secondary" data-toggle="modal"><u>[CU]동아)포카리스웨트620ML_B2C_[옴니텔]_쿠프마케팅(연동)_11번가</u></a>
+                                            </td>
+                                            <td>유효기간 연장</td>
+                                            <td>대기 중</td>
+                                            <td>이순신(sslee)</td>
+                                            <td>2021-01-11</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>2021-01-06</td>
+                                            <td>
+                                                <a href="#" class="text-secondary"><u>1234123412341324</u></a>
+                                            </td>
+                                            <td>CU편의점(쿠프)</td>
+                                            <td>11번가</td>
+                                            <td class="text-left">
+                                                <a href="#cs-detail" class="text-secondary" data-toggle="modal"><u>[CU]동아)포카리스웨트620ML_B2C_[옴니텔]_쿠프마케팅(연동)_11번가</u></a>
+                                            </td>
+                                            <td>유효기간 연장</td>
+                                            <td>대기 중</td>
+                                            <td>이순신(sslee)</td>
+                                            <td>2021-01-11</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>2021-01-06</td>
+                                            <td>
+                                                <a href="#" class="text-secondary"><u>1234123412341324</u></a>
+                                            </td>
+                                            <td>CU편의점(쿠프)</td>
+                                            <td>11번가</td>
+                                            <td class="text-left">
+                                                <a href="#cs-detail" class="text-secondary" data-toggle="modal"><u>[CU]동아)포카리스웨트620ML_B2C_[옴니텔]_쿠프마케팅(연동)_11번가</u></a>
+                                            </td>
+                                            <td>유효기간 연장</td>
+                                            <td>대기 중</td>
+                                            <td>이순신(sslee)</td>
+                                            <td>2021-01-11</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btn btn-sm btn-secondary">EXCEL 다운로드</button>
+                                    </div>
+                                    <div class="col">
+                                        <nav>
+                                            <ul class="pagination pagination-sm justify-content-center">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">fast_rewind</span></a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">skip_previous</span></a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">skip_next</span></a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">fast_forward</span></a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="col text-right">
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-- 로딩 모달 -->
+                            <!--
+                                모달 보이기: $('#loading').modal('show')
+                                모달 숨기기: $('#loading').modal('hide')
+                            -->
+
+                            <!-- CS 상세보기 모달 -->
+                            <div class="modal modal-2020" tabindex="-1" role="dialog" id="cs-detail" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 600px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">C/S 상세(유효기간 연장)</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered">
+                                                <colgroup>
+                                                    <col style="width: 15%">
+                                                    <col style="width: 35%">
+                                                    <col style="width: 15%">
+                                                    <col style="width: 35%">
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>등록일</th>
+                                                        <td class="text-left">2021-01-06</td>
+                                                        <th>수신자 번호</th>
+                                                        <td class="text-left">010-1234-1234</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>쿠폰번호</th>
+                                                        <td colspan="3" class="text-left">
+                                                            <a href="#" class="text-secondary">1234123412341324</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>상품명</th>
+                                                        <td colspan="3" class="text-left">
+                                                            빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>C/S종류</th>
+                                                        <td class="text-left">유효기간 연장</td>
+                                                        <th>진행상태*</th>
+                                                        <td>
+                                                            <select class="form-control cs-step">
+                                                                <option value="">대기 중</option>
+                                                                <option value="">처리 중</option>
+                                                                <option value="">완료</option>
+                                                                <option value="">철회</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>철회사유*</th>
+                                                        <td colspan="3" class="text-left">
+                                                            <div class="d-flex align-items-center mb-2">
+                                                                <label class="mb-0 d-flex align-items-center mr-3">
+                                                                    <input class="check-withdraw-lms mr-2" type="checkbox" disabled> 철회 시 안내 문자메시지 발송
+                                                                </label>
+                                                                <a href="#" class="text-secondary" data-toggle="popover" data-trigger="focus" data-html="true"
+                                                                    data-content="[Web발신]<br>
+                                                                    [TSCIENTIFIC 고객센터]<br>
+                                                                    <br>
+                                                                    신청하신 쿠폰 유효기간 연장이 철회되었습니다. <br>
+                                                                    <br>
+                                                                    □ 쿠폰번호: 0123-4567-8901-2345<br>
+                                                                    □ 상품명: 빽다방 배에이드<br>
+                                                                    □ 철회사유: 잘못된 쿠폰번호<br>
+                                                                    □ 문의<br>
+                                                                    - 고객센터: 1588-5639<br>
+                                                                    - 이메일 문의: cs@tscientific.co.kr">미리보기</a>
+                                                            </div>
+                                                            <div class="mb-2">
+                                                                <textarea class="form-control withdraw-reason" rows="5" disabled></textarea>
+                                                            </div>
+                                                            <div class="text-danger">※ 철회 시 고객에게 안내되는 사유</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>비고</th>
+                                                        <td colspan="3" class="text-left">
+                                                            <div class="mb-2">
+                                                                <textarea class="form-control" rows="5"></textarea>
+                                                            </div>
+                                                            <div class="text-danger">※ 고객에게 노출되지 않는 내부 참고용 기록</div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // CS 상세보기 모달 -->
+
+                            <!-- 진행상태 일괄수정 모달  -->
+                            <div class="modal modal-2020" tabindex="-1" role="dialog" id="batch-edit" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 600px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">진행상태 일괄 수정</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered">
+                                                <colgroup>
+                                                    <col style="width: 15%">
+                                                    <col style="width: 85%">
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>상품명</th>
+                                                        <td colspan="3" class="text-left p-0">
+                                                            <div class="overflow-auto" style="max-height: 300px;">
+                                                                <span class="d-block p-2">빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)</span>
+                                                                <hr class="m-0">
+                                                                <span class="d-block p-2">빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)</span>
+                                                                <hr class="m-0">
+                                                                <span class="d-block p-2">빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)</span>
+                                                                <hr class="m-0">
+                                                                <span class="d-block p-2">빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)</span>
+                                                                <hr class="m-0">
+                                                                <span class="d-block p-2">빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST) 빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST) 빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST) 빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)</span>
+                                                                <hr class="m-0">
+                                                                <span class="d-block p-2">빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)</span>
+                                                                <hr class="m-0">
+                                                                <span class="d-block p-2">빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)</span>
+                                                                <hr class="m-0">
+                                                                <span class="d-block p-2">빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)</span>
+                                                                <hr class="m-0">
+                                                                <span class="d-block p-2">빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST) 빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST) 빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST) 빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>진행상태*</th>
+                                                        <td>
+                                                            <select class="form-control cs-step" style="width: 150px">
+                                                                <option value="">대기 중</option>
+                                                                <option value="">처리 중</option>
+                                                                <option value="">완료</option>
+                                                                <option value="">철회</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>철회사유*</th>
+                                                        <td colspan="3" class="text-left">
+                                                            <div class="d-flex align-items-center mb-2">
+                                                                <label class="mb-0 d-flex align-items-center mr-3">
+                                                                    <input class="check-withdraw-lms mr-2" type="checkbox" disabled> 철회 시 안내 문자메시지 발송
+                                                                </label>
+                                                                <a href="#" class="text-secondary" data-toggle="popover" data-trigger="focus" data-html="true"
+                                                                    data-content="
+                                                                    [Web발신]<br>
+                                                                    [TSCIENTIFIC 고객센터]<br>
+                                                                    <br>
+                                                                    신청하신 쿠폰 유효기간 연장이 철회되었습니다. <br>
+                                                                    <br>
+                                                                    □ 쿠폰번호: 0123-4567-8901-2345<br>
+                                                                    □ 상품명: 빽다방 배에이드<br>
+                                                                    □ 철회사유: 잘못된 쿠폰번호<br>
+                                                                    □ 문의<br>
+                                                                    - 고객센터: 1588-5639<br>
+                                                                    - 이메일 문의: cs@tscientific.co.kr">미리보기</a>
+                                                            </div>
+                                                            <div class="mb-2">
+                                                                <textarea class="form-control withdraw-reason" rows="5" disabled></textarea>
+                                                            </div>
+                                                            <div class="text-danger">※ 철회 시 고객에게 안내되는 사유</div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 진행상태 일괄수정 모달  -->
+
+                            <script>
+                                (function($) {
+                                    // 발송문자 미리보기 오버
+                                    $('[data-toggle="popover"]').popover()
+
+                                    // 체큼박스 선택 시, 전체 선택/해제
+                                    $(document).on('click', '.online-cs-list.table .select-all', function() {
+                                        $('.online-cs-list.table tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'))
+                                    })
+
+                                    // CS 상세보기 모달에서 진행상태를 철회로 선택 시, 철회사유 입력창 활성화
+                                    $(document).on('change', '#cs-detail .cs-step', function() {
+                                        $('#cs-detail .withdraw-reason').prop('disabled', (this.selectedIndex != 3))
+                                        $('#cs-detail .check-withdraw-lms').prop('disabled', (this.selectedIndex != 3))
+                                    })
+
+                                    // 진행상태 일괄수정 모달에서 진행상태를 철회로 선택 시, 철회사유 입력창 활성화
+                                    $(document).on('change', '#batch-edit .cs-step', function() {
+                                        $('#batch-edit .withdraw-reason').prop('disabled', (this.selectedIndex != 3))
+                                        $('#batch-edit .check-withdraw-lms').prop('disabled', (this.selectedIndex != 3))
+                                    })
+                                })(jQuery);
+                            </script>
+
+                            <!-- contents 영역 끝-->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
