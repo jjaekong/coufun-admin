@@ -1,0 +1,510 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>쿠펀 관리자페이지</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://tadmin.coufun.kr/css/css.css" rel="stylesheet" type="text/css">
+    <link href="https://tadmin.coufun.kr/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- v2 -->
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/commAjax.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/lib/handlebars-v4.0.12.js"></script>
+    <script type="text/javascript" src="https://tadmin.coufun.kr/v2/js/helper.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/css/style_2020.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#04466c">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <!-- top 영역 시작 -->
+                <table style="width:100%; height:100; border:0; cellspacing:0; cellpadding:0;">
+                    <tr>
+                        <td width="200" rowspan="3" align="center">
+                        </td>
+                        <td align="right">
+                            <div id="top">
+                                <h1></h1>
+                                <h4>김재홍님 반갑습니다.</h4>
+                                <h2><a href="/v2/user/infoUpdate.om" title="정보수정"></a></h2>
+                                <h3>
+                                    <a href="/v2/login/logout.om" title="로그아웃"></a>
+                                </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <table style="width:700; border:0; cellspacing:0; cellpadding:0;">
+                                <tr>
+                                    <td align="center">
+                                        <div id="nav">
+                                            <ul>
+                                                <li><a href="/v2/user/list.om?uppermenuId=1" class="menu">계정관리</a></li>
+                                                <li><a href="/goods/list.coufun?uppermenuId=2" class="menu">상품관리</a></li>
+                                                <li><a href="/poc/list.coufun?uppermenuId=3" class="menu">제휴사및POC관리</a></li>
+                                                <li><a href="/systemconfig/list.coufun?uppermenuId=9" class="menu">환경설정</a></li>
+                                                <li><a href="/statistics/poc_list.coufun?uppermenuId=32" class="menu">통계관리</a></li>
+                                                <li><a href="/calculation/calculation_define_list.coufun?uppermenuId=37" class="menu">대사</a></li>
+                                                <li><a href="/btob_agency/list.coufun?uppermenuId=42" class="menu">B2B 회원관리</a></li>
+                                                <li><a href="/btob_send/list.coufun?uppermenuId=45" class="menu">B2B 발송관리</a></li>
+                                                <li><a href="/btob_event/list.coufun?uppermenuId=49" class="menu">B2B 이벤트관리</a></li>
+                                                <li><a href="/cs_new/list.coufun?uppermenuId=61" class="menu">C/S관리</a></li>
+                                                <li><a href="/selling_calculation/selectCalClientMonth.coufun?uppermenuId=67" class="menu">정산</a></li>
+                                                <li><a href="/oper_function/rcompany_coupon_rb_list.coufun?uppermenuId=108" class="menu">운영기능</a></li>
+                                                <li><a href="/company/companyList.coufun?uppermenuId=175" class="menu">거래처관리</a></li>
+                                                <li><a href="/sales/companySalesList.coufun?uppermenuId=177" class="menu">매출</a></li>
+                                                <li><a href="/couponmall/category.coufun?uppermenuId=182" class="menu">쿠폰몰</a></li>
+                                                <li><a href="/admin_system/calbatchlist.coufun?uppermenuId=187" class="menu">시스템</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- top 영역 끝-->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="205" valign="top">
+                            <!-- left 영역 시작 -->
+                            <table width="100%" height="300" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top">
+                                        <table width="200" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <div id="left">
+                                                        <h1>C/S</h1>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="/cs_new/online_cs.html">C/S(기간연장)</a>
+                                                                <a href="/cs_new/faq_list.html">자주하는 질문 관리</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- left 영역 끝-->
+                        </td>
+                        <td align="left" valign="top">
+
+                            <!-- contents 영역 시작 -->
+
+                            <div class="cs online content-2020">
+
+                                <h4 class="page-title mt-2">자주하는 질문 관리</h4>
+                            
+                                <!-- 검색폼 영역 -->
+                                <table class="table mb-4 border-bottom">
+                                    <colgroup>
+                                        <col style='width: 150px'>
+                                        <col style="width: 355px">
+                                        <col style='width: 150px'>
+                                        <col style="width: 355px">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>최초등록일</th>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="date" class="form-control form-control-sm" style="width: 150px;">
+                                                    <span class="mx-1">~</span>
+                                                    <input type="date" class="form-control form-control-sm" style="width: 150px;">
+                                                </div>
+                                            </td>
+                                            <th>등록자</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>최종수정일</th>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="date" class="form-control form-control-sm" style="width: 150px;">
+                                                    <span class="mx-1">~</span>
+                                                    <input type="date" class="form-control form-control-sm" style="width: 150px;">
+                                                </div>
+                                            </td>
+                                            <th>수정자</th>
+                                            <td>
+                                                <input type="text" class="form-control form-control-sm">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>질문유형</th>
+                                            <td class="text-left">
+                                                <select class="form-control form-control-sm">
+                                                    <option value="">질문유형 #1</option>
+                                                    <option value="">질문유형 #2</option>
+                                                    <option value="">질문유형 #3</option>
+                                                    <option value="">질문유형 #4</option>
+                                                </select>
+                                            </td>
+                                            <th>질문</th>
+                                            <td class="text-left">
+                                                <input type="text" class="form-control form-control-sm">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="4">
+                                                <button type="submit" class="btn btn-sm btn-secondary">조회</button>
+                                                <button type="reset" class="btn btn-sm btn-secondary ml-2">초기화</button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <!-- // 검색폼 영역 -->
+
+                                <div class="row align-items-center">
+                                    <div class="col col-auto">
+                                        ※ 총 <span class="badge badge-warning">00</span> 건의 결과가 있습니다.
+                                    </div>
+                                    <div class="col text-right">
+                                        <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#faq-form">등록</button>
+                                        <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#faq-type">질문유형 관리</button>
+                                    </div>
+                                </div>
+
+                                <table class="table mt-2 border-bottom table-bordered table-hover faq-list">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" class="select-all"></th>
+                                            <th>최초등록일</th>
+                                            <th>등록자</th>
+                                            <th>최종수정일</th>
+                                            <th>수정자</th>
+                                            <th>질문유형</th>
+                                            <th>질문</th>
+                                            <th>전시기간</th>
+                                            <th>전시여부</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>2021-01-06</td>
+                                            <td>이순신<br>(sslee)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>쿠폰 이용안내</td>
+                                            <td class="text-left"><a class="text-secondary" href="#"><u>쿠폰을 받지 못했습니다.</u></a></td>
+                                            <td>2021-01-08 ~<br>2022-01-08</td>
+                                            <td>전시</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>2021-01-06</td>
+                                            <td>이순신<br>(sslee)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>재발송</td>
+                                            <td class="text-left"><a class="text-secondary" href="#"><u>쿠폰 인증 후에도 쿠폰조회가 안 됩니다.</u></a></td>
+                                            <td>무기한</td>
+                                            <td>전시</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>2021-01-07</td>
+                                            <td>이순신<br>(sslee)</td>
+                                            <td>2021-01-07</td>
+                                            <td>이순신<br>(sslee)</td>
+                                            <td>기간연장</td>
+                                            <td class="text-left"><a class="text-secondary" href="#"><u>쿠폰 유효기간 만료 시 사용이 불가능한가요?</u></a></td>
+                                            <td>무기한</td>
+                                            <td>전시</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btn btn-sm btn-secondary">EXCEL 다운로드</button>
+                                    </div>
+                                    <div class="col">
+                                        <nav>
+                                            <ul class="pagination pagination-sm justify-content-center">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">fast_rewind</span></a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">skip_previous</span></a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">skip_next</span></a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="material-icons" style="font-size: 1rem;">fast_forward</span></a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="col text-right">
+                                        <button class="btn btn-sm btn-secondary">삭제</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-- 질문유형 관리 모달 -->
+                            <div class="modal modal-2020" tabindex="-1" role="dialog" id="faq-type" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 600px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">질문유형 관리</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered" id="faq-type-list">
+                                                <colgroup>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th>질문유형</th>
+                                                        <th>우선순위 변경</th>
+                                                        <th>삭제</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input type="text" class="form-control form-control-sm"></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-outline-secondary btn-seq-up"><i class="bi bi-chevron-up"></i></button>
+                                                            <button class="btn btn-sm btn-outline-secondary btn-seq-down"><i class="bi bi-chevron-down"></i></button>
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-link text-decoration-none text-secondary p-0 btn-remove-type"><i class="bi bi-x" style="font-size: 2rem;"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <button class="btn btn-sm btn-outline-secondary btn-add-type"><i class="bi bi-plus"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 질문유형 관리 모달 -->
+
+                            <!-- 자주하는 질문 등록/상세 모달  -->
+                            <div class="modal modal-2020" tabindex="-1" role="dialog" id="faq-form" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 600px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">자주하는 질문</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered">
+                                                <colgroup>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>최초등록일</th>
+                                                        <td>2021-01-06</td>
+                                                        <th>등록자</th>
+                                                        <td>홍길동(gdhong)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>최종수정일</th>
+                                                        <td>2021-01-07</td>
+                                                        <th>수정자</th>
+                                                        <td>아무개(mga)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>질문유형</th>
+                                                        <td colspan="3">
+                                                            <select class="form-control form-control-sm">
+                                                                <option value="">미할당</option>
+                                                                <option value="">질문유형 #1</option>
+                                                                <option value="">질문유형 #2</option>
+                                                                <option value="">질문유형 #3</option>
+                                                                <option value="">질문유형 #4</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>질문</th>
+                                                        <td colspan="3">
+                                                            <textarea class="form-control form-control-sm" rows="3"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>답변</th>
+                                                        <td colspan="3">
+                                                            <textarea class="form-control form-control-sm" rows="5"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>전시기간</th>
+                                                        <td colspan="3">
+                                                            <div class="d-flex align-items-center faq-form-to">
+                                                                <input type="date" class="form-control form-control-sm" style="width: 120px;" disabled>
+                                                                <span class="mx-1">~</span>
+                                                                <input type="date" class="form-control form-control-sm" style="width: 120px;" disabled>
+                                                                <label class="ml-3 mb-0 d-flex align-items-center">
+                                                                    <input type="checkbox" class="mr-2 no-deadline" checked> 무기한
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>전시여부</th>
+                                                        <td colspan="3">
+                                                            <div class="d-flex align-items-center">
+                                                                <label class="mb-0 mr-3 d-flex align-items-center">
+                                                                    <input type="radio" class="mr-2" checked> 전시
+                                                                </label>
+                                                                <label class="mb-0 mr-3 d-flex align-items-center">
+                                                                    <input type="radio" class="mr-2"> 비전시
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>BEST 질문</th>
+                                                        <td colspan="3">
+                                                            <div class="d-flex align-items-center">
+                                                                <label class="mb-0 mr-3 d-flex align-items-center">
+                                                                    <input type="radio" class="mr-2"> 1순위
+                                                                </label>
+                                                                <label class="mb-0 mr-3 d-flex align-items-center">
+                                                                    <input type="radio" class="mr-2"> 2순위
+                                                                </label>
+                                                                <label class="mb-0 mr-3 d-flex align-items-center">
+                                                                    <input type="radio" class="mr-2"> 3순위
+                                                                </label>
+                                                                <label class="mb-0 mr-3 d-flex align-items-center">
+                                                                    <input type="radio" class="mr-2"> <u>4순위</u> <!-- 이미 해당 순위가 사용 중일 경우, 언더라인으로 처리-->
+                                                                </label>
+                                                                <label class="mb-0 mr-3 d-flex align-items-center">
+                                                                    <input type="radio" class="mr-2"> <u>5순위</u>
+                                                                </label>
+                                                                <label class="mb-0 mr-3 d-flex align-items-center">
+                                                                    <input type="radio" class="mr-2" checked> 해당 없음
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 자주하는 질문 등록/상세 모달  -->
+
+                            <script>
+                                (function($) {
+
+                                    // 체큼박스 선택 시, 전체 선택/해제
+                                    $(document).on('click', '.faq-list.table .select-all', function() {
+                                        $('.faq-list.table tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'))
+                                    })
+
+                                    // 질문유형 관리 모달에서 행 추가 버튼 클릭 시
+                                    $(document).on('click', '#faq-type .btn-add-type', function() {
+                                        $('#faq-type #faq-type-list tbody:eq(0)').append(
+                                            `<tr>
+                                                <td><input type="text" class="form-control form-control-sm"></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary btn-seq-up"><i class="bi bi-chevron-up"></i></button>
+                                                    <button class="btn btn-sm btn-outline-secondary btn-seq-down"><i class="bi bi-chevron-down"></i></button>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-link text-decoration-none text-secondary p-0 btn-remove-type"><i class="bi bi-x" style="font-size: 2rem;"></i></button>
+                                                </td>
+                                            </tr>`
+                                        )
+                                    })
+
+                                    // 질문유형 관리 모달에서 행 삭제 버튼 클릭 시
+                                    $(document).on('click', '#faq-type .btn-remove-type', function() {
+                                        $(this).parents('tr').eq(0).remove()
+                                    })
+
+                                    // 질문유형 관리 모달에서 행 위로 버튼 클릭 시
+                                    $(document).on('click', '#faq-type .btn-seq-up', function() {
+                                        var $tr = $(this).parents('tr').eq(0)
+                                        if ( $tr.prev("tr").length > 0 ) {
+                                            $tr.prev("tr").before( $tr.clone() )
+                                            $tr.remove()
+                                        }
+                                    })
+
+                                    // 질문유형 관리 모달에서 행 아래로 버튼 클릭 시
+                                    $(document).on('click', '#faq-type .btn-seq-down', function() {
+                                        var $tr = $(this).parents('tr').eq(0)
+                                        if ( $tr.next("tr").length > 0 ) {
+                                            $tr.next("tr").after( $tr.clone() )
+                                            $tr.remove()
+                                        }
+                                    })
+
+                                    // 자주하는 질문 등록 모달에서 전시기간 항목의 무기한 클릭 시, 날짜 활성/비활성
+                                    $(document).on('click', '#faq-form .faq-form-to .no-deadline', function() {
+                                        console.log("checked", $(this).prop('checked'))
+                                        $('#faq-form .faq-form-to input[type=date]').prop('disabled', $(this).prop('checked'))
+                                    })
+
+                                })(jQuery);
+                            </script>
+
+                            <!-- contents 영역 끝-->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
