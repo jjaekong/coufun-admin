@@ -111,7 +111,7 @@
 
                             <div class="cs online content-2020">
 
-                                <h4 class="page-title mt-2">C/S(기간연장)</h4>
+                                <h4 class="page-title mt-2">C/S(기간연장, 환불)</h4>
                             
                                 <!-- 검색폼 영역 -->
                                 <table class="table mb-4 border-bottom">
@@ -147,6 +147,9 @@
                                             <td class="text-left">
                                                 <label class="mb-0 d-inline-flex align-items-center mr-2">
                                                     <input type="checkbox" class="mr-2" checked="checked"> 유효기간 연장
+                                                </label>
+                                                <label class="mb-0 d-inline-flex align-items-center mr-2">
+                                                    <input type="checkbox" class="mr-2" checked="checked"> 환불신청
                                                 </label>
                                             </td>
                                             <th>진행상태</th>
@@ -345,10 +348,22 @@
                                                     </tr>
                                                     <tr>
                                                         <th>C/S종류</th>
-                                                        <td class="text-left">유효기간 연장</td>
+                                                        <td colspan="3" class="text-left">유효기간 연장</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>예금주</th>
+                                                        <td class="text-left">홍길동</td>
+                                                        <th>은행명</th>
+                                                        <td class="text-left">우리은행</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>계좌번호</th>
+                                                        <td colspan="3" class="text-left">213-328190-321</td>
+                                                    </tr>
+                                                    <tr>
                                                         <th>진행상태*</th>
-                                                        <td>
-                                                            <select class="form-control cs-step">
+                                                        <td colspan="3">
+                                                            <select class="form-control cs-step" style="width: 150px">
                                                                 <option value="">대기 중</option>
                                                                 <option value="">처리 중</option>
                                                                 <option value="">완료</option>
