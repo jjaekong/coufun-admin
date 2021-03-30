@@ -409,7 +409,7 @@
                                                             <input type="number" class="form-control form-control-sm" style="width: 100px;">
                                                         </td>
                                                     </tr>
-                                                    <tr>456788\
+                                                    <tr>
                                                         <th>BEST 질문</th>
                                                         <td colspan="3">
                                                             <div class="d-flex align-items-center">
@@ -454,6 +454,16 @@
                                         $('.faq-list.table tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'))
                                     })
 
+                                    // 질문유형 관리 모달에서 첫행 위로 버튼, 마지막행 아래로 버튼 비활성화 처리
+                                    var setDisabledSeqBtn = () => {
+                                        $('#faq-type #faq-type-list tbody:eq(0) .btn-seq-up').prop('disabled', false)
+                                        $('#faq-type #faq-type-list tbody:eq(0) .btn-seq-down').prop('disabled', false)
+                                        $('#faq-type #faq-type-list tbody:eq(0) tr:first-child .btn-seq-up').prop('disabled', true)
+                                        $('#faq-type #faq-type-list tbody:eq(0) tr:last-child .btn-seq-down').prop('disabled', true)
+                                    }
+
+                                    setDisabledSeqBtn()
+
                                     // 질문유형 관리 모달에서 행 추가 버튼 클릭 시
                                     $(document).on('click', '#faq-type .btn-add-type', function() {
                                         $('#faq-type #faq-type-list tbody:eq(0)').append(
@@ -468,29 +478,35 @@
                                                 </td>
                                             </tr>`
                                         )
+                                        setDisabledSeqBtn()
                                     })
 
                                     // 질문유형 관리 모달에서 행 삭제 버튼 클릭 시
                                     $(document).on('click', '#faq-type .btn-remove-type', function() {
                                         $(this).parents('tr').eq(0).remove()
+                                        setDisabledSeqBtn()
                                     })
 
                                     // 질문유형 관리 모달에서 행 위로 버튼 클릭 시
                                     $(document).on('click', '#faq-type .btn-seq-up', function() {
                                         var $tr = $(this).parents('tr').eq(0)
                                         if ( $tr.prev("tr").length > 0 ) {
+                                            $tr.disabled = false
                                             $tr.prev("tr").before( $tr.clone() )
                                             $tr.remove()
                                         }
+                                        setDisabledSeqBtn()
                                     })
 
                                     // 질문유형 관리 모달에서 행 아래로 버튼 클릭 시
                                     $(document).on('click', '#faq-type .btn-seq-down', function() {
                                         var $tr = $(this).parents('tr').eq(0)
                                         if ( $tr.next("tr").length > 0 ) {
+                                            $tr.disabled = false
                                             $tr.next("tr").after( $tr.clone() )
                                             $tr.remove()
                                         }
+                                        setDisabledSeqBtn()
                                     })
 
                                     // 자주하는 질문 등록 모달에서 전시기간 항목의 무기한 클릭 시, 날짜 활성/비활성
