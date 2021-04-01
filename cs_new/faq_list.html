@@ -383,9 +383,9 @@
                                                         <th>전시기간</th>
                                                         <td colspan="3">
                                                             <div class="d-flex align-items-center faq-form-to">
-                                                                <input type="date" class="form-control form-control-sm" style="width: 120px;" disabled>
+                                                                <input type="date" class="form-control form-control-sm" style="width: 150px;" disabled>
                                                                 <span class="mx-1">~</span>
-                                                                <input type="date" class="form-control form-control-sm" style="width: 120px;" disabled>
+                                                                <input type="date" class="form-control form-control-sm" style="width: 150px;" disabled>
                                                                 <label class="ml-3 mb-0 d-flex align-items-center">
                                                                     <input type="checkbox" class="mr-2 no-deadline" checked> 무기한
                                                                 </label>
@@ -412,25 +412,36 @@
                                                     <tr>
                                                         <th>BEST 질문</th>
                                                         <td colspan="3">
-                                                            <div class="d-flex align-items-center">
-                                                                <label class="mb-0 mr-3 d-flex align-items-center">
-                                                                    <input type="radio" class="mr-2"> 1순위
-                                                                </label>
-                                                                <label class="mb-0 mr-3 d-flex align-items-center">
-                                                                    <input type="radio" class="mr-2"> 2순위
-                                                                </label>
-                                                                <label class="mb-0 mr-3 d-flex align-items-center">
-                                                                    <input type="radio" class="mr-2"> 3순위
-                                                                </label>
-                                                                <label class="mb-0 mr-3 d-flex align-items-center">
-                                                                    <input type="radio" class="mr-2"> <u>4순위</u> <!-- 이미 해당 순위가 사용 중일 경우, 언더라인으로 처리-->
-                                                                </label>
-                                                                <label class="mb-0 mr-3 d-flex align-items-center">
-                                                                    <input type="radio" class="mr-2"> <u>5순위</u>
-                                                                </label>
-                                                                <label class="mb-0 mr-3 d-flex align-items-center">
-                                                                    <input type="radio" class="mr-2" checked> 해당 없음
-                                                                </label>
+                                                            <div class="d-flex align-items-center flex-wrap">
+                                                                <div class="d-flex align-items-center mr-2">
+                                                                    <input type="radio" class="mr-2" id="best-seq-1">
+                                                                    <label class="mb-0 mr-1 d-flex align-items-center" for="best-seq-1">1순위</label>
+                                                                    <a class="text-decoration-none" href="#best-faq-view" data-toggle="modal">(보기)</a>
+                                                                </div>
+                                                                <div class="d-flex align-items-center mr-2">
+                                                                    <input type="radio" class="mr-2" id="best-seq-2">
+                                                                    <label class="mb-0 mr-1 d-flex align-items-center" for="best-seq-2">2순위</label>
+                                                                    <a class="text-decoration-none" href="#best-faq-view" data-toggle="modal">(보기)</a>
+                                                                </div>
+                                                                <div class="d-flex align-items-center mr-2">
+                                                                    <input type="radio" class="mr-2" id="best-seq-3">
+                                                                    <label class="mb-0 mr-1 d-flex align-items-center" for="best-seq-3">3순위</label>
+                                                                    <a class="text-decoration-none" href="#best-faq-view" data-toggle="modal">(보기)</a>
+                                                                </div>
+                                                                <div class="d-flex align-items-center mr-2">
+                                                                    <input type="radio" class="mr-2" id="best-seq-4">
+                                                                    <label class="mb-0 mr-1 d-flex align-items-center" for="best-seq-4"><u>4순위</u></label><!-- 해당 순위에 이미 정해진 질문이 있을 경우 언더바 처리: u태그 사용 -->
+                                                                    <a class="text-decoration-none" href="#best-faq-view" data-toggle="modal">(보기)</a><!-- 해당 순위에 이미 정해진 질문이 있을 경우, 해당 질문을 볼 수 있는 모달로 연결 -->
+                                                                </div>
+                                                                <div class="d-flex align-items-center mr-2">
+                                                                    <input type="radio" class="mr-2" id="best-seq-5">
+                                                                    <label class="mb-0 mr-1 d-flex align-items-center" for="best-seq-5"><u>5순위</u></label>
+                                                                    <a class="text-decoration-none" href="#best-faq-view" data-toggle="modal">(보기)</a>
+                                                                </div>
+                                                                <div class="d-flex align-items-center mr-2">
+                                                                    <input type="radio" class="mr-2" id="best-seq-none" checked>
+                                                                    <label class="mb-0 mr-1 d-flex align-items-center" for="best-seq-none">해당 없음</label>
+                                                                </div>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -445,6 +456,93 @@
                                 </div>
                             </div>
                             <!-- // 자주하는 질문 등록/상세 모달  -->
+
+                            <!-- BEST 자주하는 질문 보기 모달 -->
+                            <div class="modal modal-2020" tabindex="-1" role="dialog" id="best-faq-view" data-keyboard="false" data-backdrop="false">
+                                <div class="modal-dialog" style="max-width: 600px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">BEST 질문 보기</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered">
+                                                <colgroup>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>최초등록일</th>
+                                                        <td>2021-01-06</td>
+                                                        <th>등록자</th>
+                                                        <td>홍길동(gdhong)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>최종수정일</th>
+                                                        <td>2021-01-07</td>
+                                                        <th>수정자</th>
+                                                        <td>아무개(mga)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>질문유형</th>
+                                                        <td colspan="3" class="text-left">
+                                                            미할당
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>질문</th>
+                                                        <td colspan="3" class="text-left">
+                                                            질문 제목
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>답변</th>
+                                                        <td colspan="3" class="text-left">
+                                                            답변 내용
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>전시기간</th>
+                                                        <td colspan="3" class="text-left">
+                                                            <!-- 기간이 정해져있을 경우 -->
+                                                            <div>2021-04-01 ~ 2021-04-10</div> 
+                                                            <!-- 기간이 무제한 일 경우 -->
+                                                            <!-- <label class="ml-3 mb-0 d-flex align-items-center">
+                                                                <input type="checkbox" class="mr-2 no-deadline" checked> 무기한
+                                                            </label> -->
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>전시여부</th>
+                                                        <td class="text-left">
+                                                            전시
+                                                        </td>
+                                                        <th>전시순서</th>
+                                                        <td class="text-left">
+                                                            10
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>BEST 질문</th>
+                                                        <td colspan="3" class="text-left">
+                                                            1순위
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // BEST 자주하는 질문 보기 모달 -->
 
                             <script>
                                 (function($) {
