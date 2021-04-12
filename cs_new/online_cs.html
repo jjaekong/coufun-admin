@@ -214,7 +214,7 @@
                                             <td>CU편의점(쿠프)</td>
                                             <td>11번가</td>
                                             <td class="text-left">
-                                                <a href="#cs-detail" class="text-secondary" data-toggle="modal"><u>[CU]동아)포카리스웨트620ML_B2C_[옴니텔]_쿠프마케팅(연동)_11번가</u></a>
+                                                <a href="#cs-detail-for-extend" class="text-secondary" data-toggle="modal"><u>[CU]동아)포카리스웨트620ML_B2C_[옴니텔]_쿠프마케팅(연동)_11번가(유효기간 연장)</u></a>
                                             </td>
                                             <td>유효기간 연장</td>
                                             <td>대기 중</td>
@@ -230,7 +230,7 @@
                                             <td>CU편의점(쿠프)</td>
                                             <td>11번가</td>
                                             <td class="text-left">
-                                                <a href="#cs-detail" class="text-secondary" data-toggle="modal"><u>[CU]동아)포카리스웨트620ML_B2C_[옴니텔]_쿠프마케팅(연동)_11번가</u></a>
+                                                <a href="#cs-detail-for-refund" class="text-secondary" data-toggle="modal"><u>[CU]동아)포카리스웨트620ML_B2C_[옴니텔]_쿠프마케팅(연동)_11번가(환불신청)</u></a>
                                             </td>
                                             <td>유효기간 연장</td>
                                             <td>대기 중</td>
@@ -309,12 +309,117 @@
                                 모달 숨기기: $('#loading').modal('hide')
                             -->
 
-                            <!-- CS 상세보기 모달 -->
-                            <div class="modal modal-2020" tabindex="-1" role="dialog" id="cs-detail" data-keyboard="false" data-backdrop="static">
+                            <!-- CS 상세보기(유효기간 연장) 모달 -->
+                            <div class="modal modal-2020" tabindex="-1" role="dialog" id="cs-detail-for-extend" data-keyboard="false" data-backdrop="static">
                                 <div class="modal-dialog" style="max-width: 600px;">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">C/S 상세(유효기간 연장)</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered">
+                                                <colgroup>
+                                                    <col style="width: 15%">
+                                                    <col style="width: 35%">
+                                                    <col style="width: 15%">
+                                                    <col style="width: 35%">
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>등록일</th>
+                                                        <td class="text-left">2021-01-06</td>
+                                                        <th>수신자 번호</th>
+                                                        <td class="text-left">010-1234-1234</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>쿠폰번호</th>
+                                                        <td colspan="3" class="text-left">
+                                                            <a href="#" class="text-secondary">1234123412341324</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>상품명</th>
+                                                        <td colspan="3" class="text-left">
+                                                            빽다방)배에이드_B2C_[옴니텔]_빽다방앱 기프트샵(프로모션 제한수량 TEST)
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>C/S종류</th>
+                                                        <td colspan="3" class="text-left">유효기간 연장</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>진행상태*</th>
+                                                        <td colspan="3">
+                                                            <select class="form-control cs-step" style="width: 150px">
+                                                                <option value="">대기 중</option>
+                                                                <option value="">처리 중</option>
+                                                                <option value="">완료</option>
+                                                                <option value="">철회</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>연장 만료일</th>
+                                                        <td colspan="3">
+                                                            <input type="date" class="form-control extended-expiration-date" style="width: 150px;" disabled>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>철회사유*</th>
+                                                        <td colspan="3" class="text-left">
+                                                            <div class="d-flex align-items-center mb-2">
+                                                                <label class="mb-0 d-flex align-items-center mr-3">
+                                                                    <input class="check-withdraw-lms mr-2" type="checkbox" disabled> 철회 시 안내 문자메시지 발송
+                                                                </label>
+                                                                <a href="#" class="text-secondary" data-toggle="popover" data-trigger="focus" data-html="true"
+                                                                    data-content="[Web발신]<br>
+                                                                    [TSCIENTIFIC 고객센터]<br>
+                                                                    <br>
+                                                                    신청하신 쿠폰 유효기간 연장이 철회되었습니다. <br>
+                                                                    <br>
+                                                                    □ 쿠폰번호: 0123-4567-8901-2345<br>
+                                                                    □ 상품명: 빽다방 배에이드<br>
+                                                                    □ 철회사유: 잘못된 쿠폰번호<br>
+                                                                    □ 문의<br>
+                                                                    - 고객센터: 1588-5639<br>
+                                                                    - 이메일 문의: cs@tscientific.co.kr">미리보기</a>
+                                                            </div>
+                                                            <div class="mb-2">
+                                                                <textarea class="form-control withdraw-reason" rows="5" disabled></textarea>
+                                                            </div>
+                                                            <div class="text-danger">※ 철회 시 고객에게 안내되는 사유</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>비고</th>
+                                                        <td colspan="3" class="text-left">
+                                                            <div class="mb-2">
+                                                                <textarea class="form-control" rows="5"></textarea>
+                                                            </div>
+                                                            <div class="text-danger">※ 고객에게 노출되지 않는 내부 참고용 기록</div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1">저장</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mx-1" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // CS 상세보기 모달 -->
+
+                            <!-- CS 상세보기(환불신청) 모달 -->
+                            <div class="modal modal-2020" tabindex="-1" role="dialog" id="cs-detail-for-refund" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog" style="max-width: 600px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">C/S 상세(환불신청)</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -519,10 +624,17 @@
                                         $('.online-cs-list.table tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'))
                                     })
 
-                                    // CS 상세보기 모달에서 진행상태를 철회로 선택 시, 철회사유 입력창 활성화
-                                    $(document).on('change', '#cs-detail .cs-step', function() {
-                                        $('#cs-detail .withdraw-reason').prop('disabled', (this.selectedIndex != 3))
-                                        $('#cs-detail .check-withdraw-lms').prop('disabled', (this.selectedIndex != 3))
+                                    // CS 상세보기(유효기간 연장) 모달에서 진행상태를 철회로 선택 시, 철회사유 입력창 활성화
+                                    $(document).on('change', '#cs-detail-for-extend .cs-step', function() {
+                                        $('#cs-detail-for-extend .withdraw-reason').prop('disabled', (this.selectedIndex != 3))
+                                        $('#cs-detail-for-extend .check-withdraw-lms').prop('disabled', (this.selectedIndex != 3))
+                                        $('#cs-detail-for-extend .extended-expiration-date').prop('disabled', (this.selectedIndex != 2))
+                                    })
+
+                                    // CS 상세보기(환불신청) 모달에서 진행상태를 철회로 선택 시, 철회사유 입력창 활성화
+                                    $(document).on('change', '#cs-detail-for-refund .cs-step', function() {
+                                        $('#cs-detail-for-refund .withdraw-reason').prop('disabled', (this.selectedIndex != 3))
+                                        $('#cs-detail-for-refund .check-withdraw-lms').prop('disabled', (this.selectedIndex != 3))
                                     })
 
                                     // 진행상태 일괄수정 모달에서 진행상태를 철회로 선택 시, 철회사유 입력창 활성화
